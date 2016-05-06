@@ -41,5 +41,11 @@ namespace CRPEngine
             download_msg.Text = deleteMessage;
             
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ExcelReader er = new ExcelReader();
+            er.readingExcel();
+        }
     }
 }

@@ -31,6 +31,7 @@
             this.download_btn = new System.Windows.Forms.Button();
             this.download_msg = new System.Windows.Forms.Label();
             this.delete_file = new System.Windows.Forms.Button();
+            this.printBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // download_btn
@@ -63,11 +64,23 @@
             this.delete_file.UseVisualStyleBackColor = true;
             this.delete_file.Click += new System.EventHandler(this.delete_file_Click);
             // 
+            // printBtn
+            // 
+            this.printBtn.Location = new System.Drawing.Point(317, 137);
+            this.printBtn.Name = "printBtn";
+            this.printBtn.Size = new System.Drawing.Size(98, 23);
+            this.printBtn.TabIndex = 3;
+            this.printBtn.Text = "Print";
+            this.printBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.printBtn.UseVisualStyleBackColor = true;
+            this.printBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
             // CRPEngine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(427, 296);
+            this.Controls.Add(this.printBtn);
             this.Controls.Add(this.delete_file);
             this.Controls.Add(this.download_msg);
             this.Controls.Add(this.download_btn);
@@ -83,6 +96,7 @@
         private System.Windows.Forms.Button download_btn;
         private System.Windows.Forms.Label download_msg;
         private System.Windows.Forms.Button delete_file;
+        private System.Windows.Forms.Button printBtn;
     }
 }
 

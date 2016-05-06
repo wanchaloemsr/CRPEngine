@@ -17,7 +17,7 @@ namespace CRPEngine
         public FileAccess()
         {
             executableLoaction = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            fileLocation = Path.Combine(executableLoaction, "resume.pdf");
+            fileLocation = Path.Combine(executableLoaction, "download/resume.pdf");
         }
         
 
