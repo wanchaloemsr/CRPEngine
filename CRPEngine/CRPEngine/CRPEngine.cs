@@ -44,8 +44,35 @@ namespace CRPEngine
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string[,] message;
             ExcelReader er = new ExcelReader();
-            er.readingExcel();
+            message = er.readingExcel();
+
+            for (int column = 0; column < 30; column++)
+            {
+                for(int row = 0; row < 2; row++)
+                {
+                    messageTextBox.Text = messageTextBox.Text + message[column, row] + ("\t\t");
+
+                }
+
+                messageTextBox.Text = messageTextBox.Text + Environment.NewLine;
+
+
+            }
+            
+            
+            
+        }
+
+        private void CRPEngine_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
