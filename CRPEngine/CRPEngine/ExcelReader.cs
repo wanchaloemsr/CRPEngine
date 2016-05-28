@@ -15,55 +15,62 @@ namespace CRPEngine
         Excel.Application xlApp = new Excel.Application();
         
 
-        public string[,] readingExcel()
+        public string[,] readExcel()
         {
             Excel.Range range;
             
             int rCount = 0;
             int cCount = 0;
-            
-            
 
-            Excel.Workbook wb = xlApp.Workbooks.Open(Path.GetFullPath("job.csv"));
-            Excel.Worksheet ws = (Excel.Worksheet)wb.Worksheets.get_Item(1);
-            range = ws.UsedRange;
-            string[,] message;
-            message = new string[30, range.Columns.Count -1];
+            string[,] message = null;
 
-            for ( rCount =1; rCount <= 30; rCount++)
+            try
             {
-                for (cCount = 1; cCount <= range.Columns.Count; cCount++)
+                Excel.Workbook wb = xlApp.Workbooks.Open(Path.GetFullPath("job.csv"));
+                Excel.Worksheet ws = (Excel.Worksheet)wb.Worksheets.get_Item(1);
+                range = ws.UsedRange;
+                message = new string[30, range.Columns.Count - 1];
+
+                for (rCount = 1; rCount <= 30; rCount++)
                 {
-                    object value = (range.Cells[rCount, cCount] as Excel.Range).Value;
-                    
-
-                    if (value != null)
+                    for (cCount = 1; cCount <= range.Columns.Count; cCount++)
                     {
-                        if(value.GetType() == typeof(DateTime))
-                        {
+                        object value = (range.Cells[rCount, cCount] as Excel.Range).Value;
 
-                            DateTime date = (DateTime)value;
-                            
-                            Console.WriteLine(date.Date.ToString("d"));
-                            message[rCount-1, cCount-1] = date.Date.ToString("d");
-                        }
-                        else
+
+                        if (value != null)
                         {
-                            Console.WriteLine(value.ToString());
-                            message[rCount - 1, cCount - 1] =  value.ToString();
+                            if (value.GetType() == typeof(DateTime))
+                            {
+
+                                DateTime date = (DateTime)value;
+
+                                Console.WriteLine(date.Date.ToString("d"));
+                                message[rCount - 1, cCount - 1] = date.Date.ToString("d");
+                            }
+                            else
+                            {
+                                Console.WriteLine(value.ToString());
+                                message[rCount - 1, cCount - 1] = value.ToString();
+                            }
+
+
                         }
-                        
-                        
+
+
+
                     }
 
-                    
-                    
                 }
 
+                wb.Close(0);
+                xlApp.Quit();
             }
-
-            wb.Close(0);
-            xlApp.Quit();
+            catch (System.Runtime.InteropServices.COMException ex)
+            {
+                Console.WriteLine(ex);
+            }
+            
             return message;
 
 

@@ -12,6 +12,8 @@ namespace CRPEngine
 {
     public partial class CRPEngine : Form
     {
+        public double[,] data = new double[4, 3];
+
         public CRPEngine()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace CRPEngine
 
         private void download_btn_Click(object sender, EventArgs e)
         {
-            FetchingData myFetchingData = new FetchingData();
+            FetchData myFetchingData = new FetchData();
             myFetchingData.downloadData();
             download_msg.Text = "Successfully Downloaded!!";
             
@@ -44,25 +46,25 @@ namespace CRPEngine
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string[,] message;
+            string[,] message = null;
             ExcelReader er = new ExcelReader();
-            message = er.readingExcel();
+            message = er.readExcel();
 
-            for (int column = 0; column < 30; column++)
+            if (message != null)
             {
-                for(int row = 0; row < 2; row++)
+                for (int column = 0; column < 30; column++)
                 {
-                    messageTextBox.Text = messageTextBox.Text + message[column, row] + ("\t\t");
+                    for (int row = 0; row < 2; row++)
+                    {
+                        TextBox.Text = TextBox.Text + message[column, row] + ("\t\t");
+
+                    }
+
+                    TextBox.Text = TextBox.Text + Environment.NewLine;
+
 
                 }
-
-                messageTextBox.Text = messageTextBox.Text + Environment.NewLine;
-
-
             }
-            
-            
-            
         }
 
         private void CRPEngine_Load(object sender, EventArgs e)
@@ -74,5 +76,39 @@ namespace CRPEngine
         {
 
         }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void messageTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            formop
+        
+            //Data_Input popup = new Data_Input();
+            //DialogResult dialogresult = popup.ShowDialog();
+            //popup.Dispose();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void chart2_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+
+    public class UpdateData : EventArgs
+    {
+        double[,] data = new double[4,3];
     }
 }

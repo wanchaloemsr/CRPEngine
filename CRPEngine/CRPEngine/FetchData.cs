@@ -9,7 +9,7 @@ using System.Reflection;
 
 namespace CRPEngine
 {
-    class FetchingData
+    class FetchData
 
     {
 
@@ -18,7 +18,7 @@ namespace CRPEngine
         private WebClient myWebClient;
         private string executableLocation, downloadFileLocation;
         Uri myUri = new Uri("https://www.google.com/trends/trendsReport?hl=en-AU&q=job&date=today%2012-m&cmpt=q&tz=Etc%2FGMT-9%3A30&tz=Etc%2FGMT-9%3A30&content=1&export=1");
-        public FetchingData()
+        public FetchData()
         {
             myWebClient = new WebClient();
             executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
