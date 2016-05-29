@@ -53,9 +53,14 @@ namespace CRPEngine
                 for(int row = 0; row < 2; row++)
                 {
                     messageTextBox.Text = messageTextBox.Text + message[column, row] + ("\t\t");
+                    //this.chart1.Series["Job"].Points.AddXY();
 
                 }
-
+                if(column >= 5 && column <= 30)
+                {
+                    this.chart1.Series["Job"].Points.AddXY(message[column, 0], message[column, 1]);
+                }
+                
                 messageTextBox.Text = messageTextBox.Text + Environment.NewLine;
 
 
@@ -73,6 +78,21 @@ namespace CRPEngine
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void messageTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            //this.chart1.Series["Job"].Points.AddXY();
         }
     }
 }

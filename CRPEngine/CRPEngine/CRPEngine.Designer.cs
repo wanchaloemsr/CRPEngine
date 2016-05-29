@@ -28,11 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.download_msg = new System.Windows.Forms.Label();
             this.printBtn = new System.Windows.Forms.Button();
             this.delete_file = new System.Windows.Forms.Button();
             this.download_btn = new System.Windows.Forms.Button();
             this.messageTextBox = new System.Windows.Forms.RichTextBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // download_msg
@@ -78,27 +84,66 @@
             // messageTextBox
             // 
             this.messageTextBox.AcceptsTab = true;
-            this.messageTextBox.Location = new System.Drawing.Point(13, 9);
+            this.messageTextBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.messageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageTextBox.Location = new System.Drawing.Point(0, 0);
+            this.messageTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.messageTextBox.Name = "messageTextBox";
             this.messageTextBox.ReadOnly = true;
-            this.messageTextBox.Size = new System.Drawing.Size(366, 167);
+            this.messageTextBox.Size = new System.Drawing.Size(395, 576);
             this.messageTextBox.TabIndex = 4;
             this.messageTextBox.Text = "";
+            this.messageTextBox.TextChanged += new System.EventHandler(this.messageTextBox_TextChanged);
+            // 
+            // chart1
+            // 
+            this.chart1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(422, 165);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Color = System.Drawing.Color.Red;
+            series1.CustomProperties = "LabelStyle=Left";
+            series1.Legend = "Legend1";
+            series1.Name = "Job";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(613, 376);
+            this.chart1.TabIndex = 5;
+            this.chart1.Text = "chart1";
+            this.chart1.Click += new System.EventHandler(this.chart1_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(668, 53);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(138, 45);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Load Chart";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // CRPEngine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(524, 188);
+            this.ClientSize = new System.Drawing.Size(1064, 576);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.messageTextBox);
             this.Controls.Add(this.delete_file);
             this.Controls.Add(this.download_btn);
             this.Controls.Add(this.printBtn);
             this.Controls.Add(this.download_msg);
+            this.MaximumSize = new System.Drawing.Size(1080, 1080);
+            this.MinimumSize = new System.Drawing.Size(540, 350);
             this.Name = "CRPEngine";
             this.Text = "CRPEngine";
             this.Load += new System.EventHandler(this.CRPEngine_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,6 +156,8 @@
         private System.Windows.Forms.Button delete_file;
         private System.Windows.Forms.Button download_btn;
         private System.Windows.Forms.RichTextBox messageTextBox;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

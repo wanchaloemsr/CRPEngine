@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Reflection;
 
+using Google.Apis.Auth;
+
 namespace CRPEngine
 {
     class FileAccess
