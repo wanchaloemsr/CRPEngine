@@ -10,13 +10,13 @@ using Google.Apis.Auth;
 
 namespace CRPEngine
 {
-    class FileAccess
+    class LocalFileAccess
     {
 
         private string executableLoaction;
         private string fileLocation;
 
-        public FileAccess()
+        public LocalFileAccess()
         {
             executableLoaction = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             fileLocation = Path.Combine(executableLoaction, "download/resume.pdf");

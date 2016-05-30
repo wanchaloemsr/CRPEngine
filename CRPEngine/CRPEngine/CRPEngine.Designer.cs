@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.download_msg = new System.Windows.Forms.Label();
             this.printBtn = new System.Windows.Forms.Button();
             this.delete_file = new System.Windows.Forms.Button();
             this.download_btn = new System.Windows.Forms.Button();
             this.messageTextBox = new System.Windows.Forms.RichTextBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.button1 = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +65,7 @@
             // 
             // delete_file
             // 
-            this.delete_file.Location = new System.Drawing.Point(409, 83);
+            this.delete_file.Location = new System.Drawing.Point(513, 5);
             this.delete_file.Name = "delete_file";
             this.delete_file.Size = new System.Drawing.Size(98, 31);
             this.delete_file.TabIndex = 2;
@@ -84,13 +86,13 @@
             // messageTextBox
             // 
             this.messageTextBox.AcceptsTab = true;
-            this.messageTextBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.messageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.messageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.messageTextBox.Location = new System.Drawing.Point(0, 0);
             this.messageTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.messageTextBox.Name = "messageTextBox";
             this.messageTextBox.ReadOnly = true;
-            this.messageTextBox.Size = new System.Drawing.Size(395, 576);
+            this.messageTextBox.Size = new System.Drawing.Size(401, 198);
             this.messageTextBox.TabIndex = 4;
             this.messageTextBox.Text = "";
             this.messageTextBox.TextChanged += new System.EventHandler(this.messageTextBox_TextChanged);
@@ -98,40 +100,48 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(422, 165);
+            chartArea7.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.chart1.Legends.Add(legend7);
+            this.chart1.Location = new System.Drawing.Point(0, 206);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Color = System.Drawing.Color.Red;
-            series1.CustomProperties = "LabelStyle=Left";
-            series1.Legend = "Legend1";
-            series1.Name = "Job";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(613, 376);
+            series13.ChartArea = "ChartArea1";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series13.Color = System.Drawing.Color.Red;
+            series13.CustomProperties = "LabelStyle=Center";
+            series13.Legend = "Legend1";
+            series13.MarkerSize = 10;
+            series13.Name = "Job";
+            series14.ChartArea = "ChartArea1";
+            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series14.Color = System.Drawing.Color.Blue;
+            series14.Legend = "Legend1";
+            series14.Name = "Centerlink";
+            this.chart1.Series.Add(series13);
+            this.chart1.Series.Add(series14);
+            this.chart1.Size = new System.Drawing.Size(1062, 368);
             this.chart1.TabIndex = 5;
             this.chart1.Text = "chart1";
+            title7.Name = "Google Trends";
+            this.chart1.Titles.Add(title7);
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
-            // button1
+            // progressBar1
             // 
-            this.button1.Location = new System.Drawing.Point(668, 53);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 45);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Load Chart";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.progressBar1.Location = new System.Drawing.Point(887, 591);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(165, 24);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar1.TabIndex = 6;
+            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // CRPEngine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 576);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1064, 627);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.messageTextBox);
             this.Controls.Add(this.delete_file);
@@ -157,7 +167,7 @@
         private System.Windows.Forms.Button download_btn;
         private System.Windows.Forms.RichTextBox messageTextBox;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

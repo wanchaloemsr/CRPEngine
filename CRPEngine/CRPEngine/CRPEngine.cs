@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace CRPEngine
 {
@@ -33,7 +34,7 @@ namespace CRPEngine
         private void delete_file_Click(object sender, EventArgs e)
         {
 
-            FileAccess myFileAccess = new FileAccess();
+            LocalFileAccess myFileAccess = new LocalFileAccess();
             string deleteMessage;
 
             deleteMessage =  myFileAccess.deleteFile();
@@ -44,30 +45,33 @@ namespace CRPEngine
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string[,] message;
+            progressBar1.Visible = true;
             ExcelReader er = new ExcelReader();
-            message = er.readingExcel();
+            string[,] message;
+            string[,] centerlinkTermData;
+            er.readingExcel(out message, out centerlinkTermData);
 
-            for (int column = 0; column < 30; column++)
+            for (int column = 0; column < 650; column++)
             {
                 for(int row = 0; row < 2; row++)
                 {
                     messageTextBox.Text = messageTextBox.Text + message[column, row] + ("\t\t");
-                    //this.chart1.Series["Job"].Points.AddXY();
+                    //this.chart1.Series["Job"].Points.AddXY();Centerlink and 
 
                 }
-                if(column >= 5 && column <= 30)
+                if(column >= 5 && column <= 650)
                 {
                     this.chart1.Series["Job"].Points.AddXY(message[column, 0], message[column, 1]);
+                    this.chart1.Series["Centerlink"].Points.AddXY(centerlinkTermData[column, 0], centerlinkTermData[column, 1]);
                 }
                 
                 messageTextBox.Text = messageTextBox.Text + Environment.NewLine;
 
 
             }
-            
-            
-            
+
+            progressBar1.Visible = false;
+
         }
 
         private void CRPEngine_Load(object sender, EventArgs e)
@@ -94,5 +98,13 @@ namespace CRPEngine
         {
             //this.chart1.Series["Job"].Points.AddXY();
         }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
+        
+
+        
     }
 }
