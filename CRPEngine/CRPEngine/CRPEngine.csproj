@@ -76,18 +76,30 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data_Input.cs">
+    <Compile Include="Windows\Chart_Maximised.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Data_Input.Designer.cs">
+    <Compile Include="Windows\Chart_Maximised.Designer.cs">
+      <DependentUpon>Chart_Maximised.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Chart2_Maximised.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Chart2_Maximised.Designer.cs">
+      <DependentUpon>Chart2_Maximised.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Data_Input.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Data_Input.Designer.cs">
       <DependentUpon>Data_Input.cs</DependentUpon>
     </Compile>
     <Compile Include="ExcelReader.cs" />
     <Compile Include="FetchData.cs" />
-    <Compile Include="CRPEngine.cs">
+    <Compile Include="Windows\CRPEngine.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CRPEngine.Designer.cs">
+    <Compile Include="Windows\CRPEngine.Designer.cs">
       <DependentUpon>CRPEngine.cs</DependentUpon>
     </Compile>
     <Compile Include="FileAccess.cs" />
@@ -95,10 +107,16 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CRPEngine.resx">
+    <EmbeddedResource Include="Windows\Chart_Maximised.resx">
+      <DependentUpon>Chart_Maximised.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Chart2_Maximised.resx">
+      <DependentUpon>Chart2_Maximised.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\CRPEngine.resx">
       <DependentUpon>CRPEngine.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Data_Input.resx">
+    <EmbeddedResource Include="Windows\Data_Input.resx">
       <DependentUpon>Data_Input.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

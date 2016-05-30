@@ -1,0 +1,185 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace CRPEngine
+{
+    public partial class CRPEngine : Form
+    {
+        public double[,] data = new double[4, 3];
+        private double prediction, AUDChange, GDPChange, inflationChange;
+
+        public CRPEngine()
+        {
+            InitializeComponent();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        /*private void download_btn_Click(object sender, EventArgs e)
+        {
+            FetchData myFetchingData = new FetchData();
+            myFetchingData.downloadData();
+            download_msg.Text = "Successfully Downloaded!!";
+            
+        }
+
+        private void delete_file_Click(object sender, EventArgs e)
+        {
+
+            FileAccess myFileAccess = new FileAccess();
+            string deleteMessage;
+
+            deleteMessage =  myFileAccess.deleteFile();
+
+            download_msg.Text = deleteMessage;
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string[,] message = null;
+            ExcelReader er = new ExcelReader();
+            message = er.readExcel();
+
+            if (message != null)
+            {
+                for (int column = 0; column < 30; column++)
+                {
+                    for (int row = 0; row < 2; row++)
+                    {
+                        TextBox.Text = TextBox.Text + message[column, row] + ("\t\t");
+
+                    }
+
+                    TextBox.Text = TextBox.Text + Environment.NewLine;
+
+
+                }
+            }
+        }
+        */
+
+        private void CRPEngine_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+            //Chart1_Maximised popup = new Chart1_Maximised(this);
+            //DialogResult dialogresult = popup.ShowDialog();
+            //popup.Dispose();
+        }
+
+        private void messageTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Data_Input popup = new Data_Input(this);
+            DialogResult dialogresult = popup.ShowDialog();
+            popup.Dispose();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //calculate changes in regards to inputs and time
+            GDPChange = (data[0, 1] - data[0, 0]) /data[0,0];
+            AUDChange = (((data[2, 1] - data[2, 0]) / data[2, 0]) + ((data[2, 2] - data[2, 1]) / data[2, 1])) / 2;
+            inflationChange = (((data[1, 1] - data[1, 0]) / data[1, 0]) + ((data[1, 2] - data[1, 1]) / data[1, 1])) / 2;
+
+            prediction = GDPChange + AUDChange - inflationChange;
+            
+            //determine if a change will occur in the cash rate
+            if (prediction > 0.5)
+            {
+                prediction = data[3, 1] - .025;
+            }
+            else if (prediction < -0.1)
+            {
+                prediction = data[3, 1] + .025;
+            }
+            else 
+            {
+                prediction = data[3, 1];
+            }
+
+            UpdateChangeLabels();
+            UpdateChartData();
+        }
+
+        private void chart2_Click(object sender, EventArgs e)
+        {
+            //Chart2_Maximised popup = new Chart2_Maximised(this, prediction);
+            //DialogResult dialogresult = popup.ShowDialog();
+            //popup.Dispose();
+        }
+
+        public void RefreshInputList()
+        {
+            Inflation.Text = data[1, 0]+ ", " + data[1, 1] + ", " + data[1, 2];
+            GDP.Text = data[0, 0] + ", " + data[0, 1];
+            AUD.Text = data[2, 0] + ", " + data[2, 1] + ", " + data[2, 2];
+            CashRate.Text = data[3, 0] + ", " + data[3, 1] + ", " + data[3, 2];
+        }
+
+        private void UpdateChartData()
+        {
+            chart1.Series["GDP"].Points.AddXY(0, data[0, 0]);
+            chart1.Series["GDP"].Points.AddXY(1, data[0, 1]);
+            chart1.Series["Inflation"].Points.AddXY(0, data[1, 0]);
+            chart1.Series["Inflation"].Points.AddXY(1, data[1, 1]);
+            chart1.Series["Inflation"].Points.AddXY(2, data[1, 2]);
+            chart1.Series["AUD Value"].Points.AddXY(0, data[2, 0]);
+            chart1.Series["AUD Value"].Points.AddXY(1, data[2, 1]);
+            chart1.Series["AUD Value"].Points.AddXY(2, data[2, 2]);
+
+            chart2.Series["Cash Rate"].Points.AddXY(0, data[3, 0]);
+            chart2.Series["Cash Rate"].Points.AddXY(1, data[3, 1]);
+            chart2.Series["Cash Rate"].Points.AddXY(2, data[3, 2]);
+            chart2.Series["Prediction"].Points.AddXY(2, data[3, 1]);
+            chart2.Series["Prediction"].Points.AddXY(3, prediction);
+        }
+
+        private void UpdateChangeLabels()
+        {
+            label4.Text = "Inflation change: " + 100 * ((data[1, 2] - data[1, 0]) / data[1, 0]) + "%";
+            label1.Text = "GDP change: " + 100 * ((data[0, 1] - data[0, 0]) / data[0, 0]) + "%";
+            label2.Text = "AUD change: " + 100 * ((data[2, 2] - data[2, 0]) / data[2, 0]) + "%";
+            label3.Text = "Cash Rate Change: " + 100 * ((data[3, 2] - data[3, 0]) / data[3, 0]) + "%";
+            label5.Text = "Cash Rate Change: " + 100 * ((data[3, 2] - data[3, 0]) / data[3, 0]) + "%";
+        }
+    }
+}

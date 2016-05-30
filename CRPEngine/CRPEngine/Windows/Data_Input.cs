@@ -138,7 +138,9 @@ namespace CRPEngine
                 main.data[3, 0] = double.Parse(CR1.Text);
                 main.data[3, 1] = double.Parse(CR2.Text);
                 main.data[3, 2] = double.Parse(CR3.Text);
-                
+
+                main.RefreshInputList();
+
                 this.Close();
             }
             else
