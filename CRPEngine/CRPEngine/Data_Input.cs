@@ -12,10 +12,16 @@ namespace CRPEngine
 {
     public partial class Data_Input : Form
     {
+        private CRPEngine main;
 
         public Data_Input()
         {
             InitializeComponent();
+        }
+        public Data_Input(CRPEngine Main)
+        {
+            InitializeComponent();
+            main = Main;
         }
 
         private void messageTextBox_TextChanged(object sender, EventArgs e)
@@ -118,22 +124,20 @@ namespace CRPEngine
             if (GDP1.Text != null && GDP2.Text != null && Inflation1.Text != null && Inflation2.Text != null && Inflation3.Text != null && AUD1.Text != null && AUD2.Text != null && AUD3.Text != null && CR1.Text != null && CR2.Text != null && CR3.Text != null &&
                 GDP1.Text != "" && GDP2.Text != "" && Inflation1.Text != "" && Inflation2.Text != "" && Inflation3.Text != "" && AUD1.Text != "" && AUD2.Text != "" && AUD3.Text != "" && CR1.Text != "" && CR2.Text != "" && CR3.Text != "")
             {
-                double[,] data = new double[4, 3];
+                main.data[0, 0] = double.Parse(GDP1.Text);
+                main.data[0, 1] = double.Parse(GDP2.Text);
 
-                data[0, 0] = double.Parse(GDP1.Text);
-                data[0, 1] = double.Parse(GDP2.Text);
+                main.data[1, 0] = double.Parse(Inflation1.Text);
+                main.data[1, 1] = double.Parse(Inflation2.Text);
+                main.data[1, 2] = double.Parse(Inflation3.Text);
 
-                data[1, 0] = double.Parse(Inflation1.Text);
-                data[1, 1] = double.Parse(Inflation2.Text);
-                data[1, 2] = double.Parse(Inflation3.Text);
+                main.data[2, 0] = double.Parse(AUD1.Text);
+                main.data[2, 1] = double.Parse(AUD2.Text);
+                main.data[2, 2] = double.Parse(AUD3.Text);
 
-                data[2, 0] = double.Parse(AUD1.Text);
-                data[2, 1] = double.Parse(AUD2.Text);
-                data[2, 2] = double.Parse(AUD3.Text);
-
-                data[3, 0] = double.Parse(CR1.Text);
-                data[3, 1] = double.Parse(CR2.Text);
-                data[3, 2] = double.Parse(CR3.Text);
+                main.data[3, 0] = double.Parse(CR1.Text);
+                main.data[3, 1] = double.Parse(CR2.Text);
+                main.data[3, 2] = double.Parse(CR3.Text);
                 
                 this.Close();
             }
@@ -145,6 +149,11 @@ namespace CRPEngine
         }
 
         private void Data_Input_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
         {
 
         }

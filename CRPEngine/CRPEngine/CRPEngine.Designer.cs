@@ -37,6 +37,7 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.download_msg = new System.Windows.Forms.Label();
             this.printBtn = new System.Windows.Forms.Button();
             this.delete_file = new System.Windows.Forms.Button();
@@ -65,7 +66,7 @@
             // printBtn
             // 
             this.printBtn.Location = new System.Drawing.Point(545, 57);
-            this.printBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.printBtn.Margin = new System.Windows.Forms.Padding(4);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(131, 38);
             this.printBtn.TabIndex = 3;
@@ -76,7 +77,7 @@
             // delete_file
             // 
             this.delete_file.Location = new System.Drawing.Point(545, 102);
-            this.delete_file.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.delete_file.Margin = new System.Windows.Forms.Padding(4);
             this.delete_file.Name = "delete_file";
             this.delete_file.Size = new System.Drawing.Size(131, 38);
             this.delete_file.TabIndex = 2;
@@ -87,7 +88,7 @@
             // download_btn
             // 
             this.download_btn.Location = new System.Drawing.Point(545, 11);
-            this.download_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.download_btn.Margin = new System.Windows.Forms.Padding(4);
             this.download_btn.Name = "download_btn";
             this.download_btn.Size = new System.Drawing.Size(131, 38);
             this.download_btn.TabIndex = 0;
@@ -99,7 +100,7 @@
             // 
             this.TextBox.AcceptsTab = true;
             this.TextBox.Location = new System.Drawing.Point(524, 159);
-            this.TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.TextBox.Name = "TextBox";
             this.TextBox.ReadOnly = true;
             this.TextBox.Size = new System.Drawing.Size(289, 153);
@@ -118,7 +119,7 @@
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "Legend1";
-            series1.Name = "GPD";
+            series1.Name = "GDP";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series2.Legend = "Legend1";
@@ -169,7 +170,13 @@
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series4.Legend = "Legend1";
             series4.Name = "Cash Rate";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Color = System.Drawing.Color.Red;
+            series5.Legend = "Legend1";
+            series5.Name = "Prediction";
             this.chart2.Series.Add(series4);
+            this.chart2.Series.Add(series5);
             this.chart2.Size = new System.Drawing.Size(478, 178);
             this.chart2.TabIndex = 8;
             this.chart2.Text = "chart2";
@@ -196,7 +203,7 @@
             this.Controls.Add(this.download_btn);
             this.Controls.Add(this.printBtn);
             this.Controls.Add(this.download_msg);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CRPEngine";
             this.Text = "CRPEngine";
             this.Load += new System.EventHandler(this.CRPEngine_Load);
