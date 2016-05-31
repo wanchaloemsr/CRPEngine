@@ -21,7 +21,7 @@ namespace CRPEngine
                 case "Cash Rate":
                     if (checkFileExist() == true)
                     {
-                        cashRateAccess(out dataList, "Cash Rate", "download/cash-rate.csv");
+                        cashRateAccess(out dataList, "Cash Rate", "database/cash-rate.csv");
                     }
                     else
                     {
@@ -33,7 +33,7 @@ namespace CRPEngine
                 case "Unemployed Rate":
                     if (checkFileExist() == true)
                     {
-                        UnemploymentRateAccess(out dataList, "Unemployed Rate", "download/unemployment-report.xls");
+                        UnemploymentRateAccess(out dataList, "Unemployed Rate", "database/unemployment-report.xls");
                     }
                     else
                     {
@@ -54,8 +54,8 @@ namespace CRPEngine
         {
             if (checkFileExist() == true)
             {
-                GoogleDataModifier(out jobTermObj, "Job", "download/job-search-report.csv");
-                GoogleDataModifier(out centerlinkObj, "Centerlink", "download/centerlink-search-report.csv");
+                GoogleDataModifier(out jobTermObj, "Job", "database/job-search-report.csv");
+                GoogleDataModifier(out centerlinkObj, "Centerlink", "database/centerlink-search-report.csv");
             }
             else
             {
@@ -241,8 +241,8 @@ namespace CRPEngine
 
         private bool checkFileExist()
         {
-            if (File.Exists("download/unemployment-report.xls") == true && File.Exists("download/job-search-report.csv") == true
-                && File.Exists("download/centerlink-search-report.csv") == true && File.Exists("download/cash-rate.csv") == true)
+            if (File.Exists("database/unemployment-report.xls") == true && File.Exists("database/job-search-report.csv") == true
+                && File.Exists("database/centerlink-search-report.csv") == true && File.Exists("database/cash-rate.csv") == true)
             {
                 return true;
             }
