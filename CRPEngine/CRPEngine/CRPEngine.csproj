@@ -181,7 +181,6 @@
     <EmbeddedResource Include="Unemployed Rate Chart.resx">
       <DependentUpon>Unemployed Rate Chart.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="CRPEngine_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
