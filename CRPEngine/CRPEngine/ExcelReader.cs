@@ -13,34 +13,11 @@ namespace CRPEngine
 
         Excel.Application xlApp = new Excel.Application();
 
-
-        public ExcelReader(out List<DataObject> jobTermObj, out List<DataObject> centerlinkObj, out List<DataObject> cashRateList, out List<DataObject> unemployList)
-        {
-            if(checkFileExist() == true)
-            {
-                GoogleDataModifier(out jobTermObj, "Job", "download/job-search-report.csv");
-                GoogleDataModifier(out centerlinkObj, "Centerlink", "download/centerlink-search-report.csv");
-                cashRateAccess(out cashRateList, "Cash Rate", "download/cash-rate.csv");
-                UnemploymentRateAccess(out unemployList, "Unemployment Rate", "download/unemployment-report.xls");
-            }
-            else
-            {
-                jobTermObj = new List<DataObject>();
-                centerlinkObj = new List<DataObject>();
-                cashRateList = new List<DataObject>();
-                unemployList = new List<DataObject>();
-
-                MessageBox.Show("Some files are unavailable!! Please use the download button provided.");
-            }
-
-            
-
-        }
-
         public ExcelReader(out List<DataObject> dataList, string chartCase)
         {
 
-            switch (chartCase){
+            switch (chartCase)
+            {
                 case "Cash Rate":
                     if (checkFileExist() == true)
                     {
@@ -101,10 +78,10 @@ namespace CRPEngine
             Excel.Workbook workBook = xlApp.Workbooks.Open(Path.GetFullPath(filePath));
             Excel.Worksheet workSheet = (Excel.Worksheet)workBook.Worksheets.get_Item(2);
             range = workSheet.UsedRange;
-            
+
             dataList = new List<DataObject>();
             int col = 0;
-            
+
             dataList.Clear();
 
             for (int cCount = 1; cCount <= range.Columns.Count; cCount++)
@@ -112,7 +89,7 @@ namespace CRPEngine
 
                 object titleValue = (range.Cells[1, cCount] as Excel.Range).Value;
 
-                if(titleValue != null && titleValue.ToString().StartsWith("Unemployed total"))
+                if (titleValue != null && titleValue.ToString().StartsWith("Unemployed total"))
                 {
                     Console.WriteLine("Colonm : {0}", cCount);
                     col = cCount;
@@ -121,12 +98,12 @@ namespace CRPEngine
 
             }
 
-            for (int rCount =1; rCount <= range.Rows.Count; rCount++)
+            for (int rCount = 1; rCount <= range.Rows.Count; rCount++)
             {
 
                 object unemployedValue = (range.Cells[rCount, 1] as Excel.Range).Value;
 
-                if(unemployedValue != null && unemployedValue.GetType() == typeof(DateTime))
+                if (unemployedValue != null && unemployedValue.GetType() == typeof(DateTime))
                 {
                     DataObject unemployedData = new DataObject("Unemployed Rate");
 
@@ -134,12 +111,8 @@ namespace CRPEngine
 
                     dataList.Add(unemployedData);
                 }
-                
-            }
 
-            
-            //dataList.RemoveAt(dataList.Count - 1);
-            
+            }
 
             workBook.Close(0);
             xlApp.Quit();
@@ -227,7 +200,7 @@ namespace CRPEngine
 
         private void cashRateAccess(out List<DataObject> dataList, string searchTerm, string filePath)
         {
-            
+
             Excel.Range range;
             Excel.Workbook workBook = xlApp.Workbooks.Open(Path.GetFullPath(filePath));
             Excel.Worksheet workSheet = (Excel.Worksheet)workBook.Worksheets.get_Item(1);
@@ -248,7 +221,7 @@ namespace CRPEngine
 
                     if (cashRateValue != null)
                     {
-                        
+
                         tempObj.addValue(Convert.ToDateTime((range.Cells[rCount, 1] as Excel.Range).Value), Convert.ToString((range.Cells[rCount, 2] as Excel.Range).Value));
 
                         dataList.Add(tempObj);

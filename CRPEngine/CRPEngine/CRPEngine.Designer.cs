@@ -73,7 +73,7 @@
             this.download_btn.Name = "download_btn";
             this.download_btn.Size = new System.Drawing.Size(102, 31);
             this.download_btn.TabIndex = 0;
-            this.download_btn.Text = "Download";
+            this.download_btn.Text = "Update Database";
             this.download_btn.UseVisualStyleBackColor = true;
             this.download_btn.Click += new System.EventHandler(this.download_btn_Click);
             // 
