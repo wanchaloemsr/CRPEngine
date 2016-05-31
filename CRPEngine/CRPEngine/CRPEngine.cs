@@ -49,8 +49,13 @@ namespace CRPEngine
             ExcelReader er = new ExcelReader();
             string[,] message;
             string[,] centerlinkTermData;
-            er.readingExcel(out message, out centerlinkTermData);
+            List<GoogleSearchObject> jobTerm, centerlinkTerm;
+            er.readingExcel(out jobTerm, out centerlinkTerm);
 
+            showGraph(jobTerm,"Job");
+            showGraph(centerlinkTerm, "Centerlink");
+
+            /*
             for (int column = 0; column < 650; column++)
             {
                 for(int row = 0; row < 2; row++)
@@ -68,9 +73,11 @@ namespace CRPEngine
                 messageTextBox.Text = messageTextBox.Text + Environment.NewLine;
 
 
-            }
+            } */
 
             progressBar1.Visible = false;
+
+
 
         }
 
@@ -102,6 +109,16 @@ namespace CRPEngine
         private void progressBar1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void showGraph(List<GoogleSearchObject> statList, string term)
+        {
+            foreach(GoogleSearchObject list in statList)
+            {
+                if(DateTime.Compare(list.getDateTime(), Convert.ToDateTime("01-01-2013")) > 0){
+                    this.chart1.Series[term].Points.AddXY(Convert.ToDateTime(list.getDateTime()), list.getSearchStat());
+                }
+            }
         }
         
 

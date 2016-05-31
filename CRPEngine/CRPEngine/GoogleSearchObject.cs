@@ -9,38 +9,36 @@ namespace CRPEngine
     class GoogleSearchObject
     {
 
-        private DateTime[] dateTime;
-        private string[] searchingStat;
+        private DateTime dateTime;
+        private string searchingStat;
         private string searchTerm;
 
-        public GoogleSearchObject(int dateTimeArraySize, int searchStatArraySize, string searchTerm)
+        public GoogleSearchObject(string searchTerm)
         {
-
-            this.dateTime = new DateTime[dateTimeArraySize];
-            this.searchingStat = new string[searchStatArraySize];
+            
             this.searchTerm = searchTerm;
 
         }
 
-        public void addValue(DateTime dateTime, string searchingStat, int index)
+        public void addValue(DateTime dateTime, string searchingStat)
         {
 
-            this.dateTime[index] = dateTime;
-            this.searchingStat[index] = searchingStat;
+            this.dateTime = dateTime;
+            this.searchingStat = searchingStat;
 
         }
 
-        public string getSearchStat(int index)
+        public string getSearchStat()
         {
 
-            return searchingStat[index];
+            return searchingStat;
 
         }
 
-        public DateTime getDateTime(int index)
+        public DateTime getDateTime()
         {
 
-            return dateTime[index];
+            return dateTime;
 
         }
 
