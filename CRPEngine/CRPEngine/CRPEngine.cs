@@ -14,7 +14,7 @@ namespace CRPEngine
     public partial class CRPEngine : Form
     {
 
-        List<DataObject> jobTerm, centerlinkTerm, cashRateList, unemployList;
+        private List<DataObject> jobTerm, centerlinkTerm, cashRateList, unemployList;
 
 
         public CRPEngine()
@@ -93,7 +93,12 @@ namespace CRPEngine
 
 
         }
-        
+
+        private void GoogleBtn_Click(object sender, EventArgs e)
+        {
+            Google_Trends_Chart googleForm = new Google_Trends_Chart(this);
+            googleForm.Show();
+        }
 
         private void showGoogleGraph(List<DataObject> statList, string term)
         {
@@ -118,6 +123,19 @@ namespace CRPEngine
 
         }
 
+        private void displayCashRateBtn_Click(object sender, EventArgs e)
+        {
+            Cash_Rate_Chart crc = new Cash_Rate_Chart(this);
+            crc.Show();
+        }
+
+        private void UnemployedRateBtn_Click(object sender, EventArgs e)
+        {
+            Unemployed_Rate_Chart urc = new Unemployed_Rate_Chart(this);
+            urc.Show();
+        }
+
+
         private void clearChart()
         {
             foreach (var series in this.GoogleTrendsChart.Series)
@@ -136,6 +154,16 @@ namespace CRPEngine
             }
         }
 
-        
+        public DateTime getDateFromDTP1()
+        {
+            return this.dateTimePicker.Value;
+        }
+
+        public DateTime getDateFromDTP2()
+        {
+            return this.toDateTimePicker.Value;
+        }
+
+
     }
 }

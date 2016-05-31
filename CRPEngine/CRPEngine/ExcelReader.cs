@@ -37,6 +37,63 @@ namespace CRPEngine
 
         }
 
+        public ExcelReader(out List<DataObject> dataList, string chartCase)
+        {
+
+            switch (chartCase){
+                case "Cash Rate":
+                    if (checkFileExist() == true)
+                    {
+                        cashRateAccess(out dataList, "Cash Rate", "download/cash-rate.csv");
+                    }
+                    else
+                    {
+                        dataList = new List<DataObject>();
+
+                        MessageBox.Show("Cash rate roport is unavailable!! Please use the download button provided.");
+                    }
+                    break;
+                case "Unemployed Rate":
+                    if (checkFileExist() == true)
+                    {
+                        UnemploymentRateAccess(out dataList, "Unemployed Rate", "download/unemployment-report.xls");
+                    }
+                    else
+                    {
+                        dataList = new List<DataObject>();
+
+                        MessageBox.Show("Unemployed rate roport is unavailable!! Please use the download button provided.");
+                    }
+                    break;
+                default:
+                    dataList = new List<DataObject>();
+                    break;
+            }
+
+
+        }
+
+        public ExcelReader(out List<DataObject> jobTermObj, out List<DataObject> centerlinkObj)
+        {
+            if (checkFileExist() == true)
+            {
+                GoogleDataModifier(out jobTermObj, "Job", "download/job-search-report.csv");
+                GoogleDataModifier(out centerlinkObj, "Centerlink", "download/centerlink-search-report.csv");
+            }
+            else
+            {
+                jobTermObj = new List<DataObject>();
+                centerlinkObj = new List<DataObject>();
+
+                MessageBox.Show("Some files are unavailable!! Please use the download button provided.");
+            }
+
+
+
+        }
+
+
+
         private void UnemploymentRateAccess(out List<DataObject> dataList, string term, string filePath)
         {
 
@@ -81,7 +138,7 @@ namespace CRPEngine
             }
 
             
-            dataList.RemoveAt(dataList.Count - 1);
+            //dataList.RemoveAt(dataList.Count - 1);
             
 
             workBook.Close(0);

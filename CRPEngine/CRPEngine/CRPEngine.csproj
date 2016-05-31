@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5716FBF2-878B-40EA-8DC9-7ADABDBD426A}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CRPEngine</RootNamespace>
     <AssemblyName>CRPEngine</AssemblyName>
@@ -125,6 +125,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cash Rate Chart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cash Rate Chart.Designer.cs">
+      <DependentUpon>Cash Rate Chart.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExcelReader.cs" />
     <Compile Include="FetchingData.cs" />
     <Compile Include="CRPEngine.cs">
@@ -134,13 +140,31 @@
       <DependentUpon>CRPEngine.cs</DependentUpon>
     </Compile>
     <Compile Include="DataObject.cs" />
+    <Compile Include="Google Trends Chart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Google Trends Chart.Designer.cs">
+      <DependentUpon>Google Trends Chart.cs</DependentUpon>
+    </Compile>
     <Compile Include="LocalFileAccess.cs" />
     <Compile Include="Program.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Unemployed Rate Chart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Unemployed Rate Chart.Designer.cs">
+      <DependentUpon>Unemployed Rate Chart.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Cash Rate Chart.resx">
+      <DependentUpon>Cash Rate Chart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CRPEngine.resx">
       <DependentUpon>CRPEngine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Google Trends Chart.resx">
+      <DependentUpon>Google Trends Chart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -151,6 +175,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Unemployed Rate Chart.resx">
+      <DependentUpon>Unemployed Rate Chart.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="CRPEngine_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

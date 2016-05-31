@@ -50,6 +50,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.toDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.unemployedChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.GoogleBtn = new System.Windows.Forms.Button();
+            this.displayCashRateBtn = new System.Windows.Forms.Button();
+            this.UnemployedRateBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GoogleTrendsChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CashRateChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unemployedChart)).BeginInit();
@@ -210,11 +213,44 @@
             this.unemployedChart.TabIndex = 13;
             this.unemployedChart.Text = "chart1";
             // 
+            // GoogleBtn
+            // 
+            this.GoogleBtn.Location = new System.Drawing.Point(876, 63);
+            this.GoogleBtn.Name = "GoogleBtn";
+            this.GoogleBtn.Size = new System.Drawing.Size(170, 50);
+            this.GoogleBtn.TabIndex = 14;
+            this.GoogleBtn.Text = "Display Google Trends Chart";
+            this.GoogleBtn.UseVisualStyleBackColor = true;
+            this.GoogleBtn.Click += new System.EventHandler(this.GoogleBtn_Click);
+            // 
+            // displayCashRateBtn
+            // 
+            this.displayCashRateBtn.Location = new System.Drawing.Point(876, 128);
+            this.displayCashRateBtn.Name = "displayCashRateBtn";
+            this.displayCashRateBtn.Size = new System.Drawing.Size(170, 50);
+            this.displayCashRateBtn.TabIndex = 15;
+            this.displayCashRateBtn.Text = "Display Cash Rate Chart";
+            this.displayCashRateBtn.UseVisualStyleBackColor = true;
+            this.displayCashRateBtn.Click += new System.EventHandler(this.displayCashRateBtn_Click);
+            // 
+            // UnemployedRateBtn
+            // 
+            this.UnemployedRateBtn.Location = new System.Drawing.Point(876, 190);
+            this.UnemployedRateBtn.Name = "UnemployedRateBtn";
+            this.UnemployedRateBtn.Size = new System.Drawing.Size(170, 50);
+            this.UnemployedRateBtn.TabIndex = 16;
+            this.UnemployedRateBtn.Text = "Display Unemployed Rate Chart";
+            this.UnemployedRateBtn.UseVisualStyleBackColor = true;
+            this.UnemployedRateBtn.Click += new System.EventHandler(this.UnemployedRateBtn_Click);
+            // 
             // CRPEngine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 721);
+            this.Controls.Add(this.UnemployedRateBtn);
+            this.Controls.Add(this.displayCashRateBtn);
+            this.Controls.Add(this.GoogleBtn);
             this.Controls.Add(this.unemployedChart);
             this.Controls.Add(this.toDateTimePicker);
             this.Controls.Add(this.label2);
@@ -252,6 +288,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker toDateTimePicker;
         private System.Windows.Forms.DataVisualization.Charting.Chart unemployedChart;
+        private System.Windows.Forms.Button GoogleBtn;
+        private System.Windows.Forms.Button displayCashRateBtn;
+        private System.Windows.Forms.Button UnemployedRateBtn;
     }
 }
 
