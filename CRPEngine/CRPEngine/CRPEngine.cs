@@ -13,6 +13,10 @@ namespace CRPEngine
 {
     public partial class CRPEngine : Form
     {
+
+        List<DataObject> jobTerm, centerlinkTerm, cashRateList, unemployList;
+
+
         public CRPEngine()
         {
             InitializeComponent();
@@ -43,84 +47,94 @@ namespace CRPEngine
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void show_chart_Click(object sender, EventArgs e)
         {
-            progressBar1.Visible = true;
-            ExcelReader er = new ExcelReader();
-            string[,] message;
-            string[,] centerlinkTermData;
-            List<GoogleSearchObject> jobTerm, centerlinkTerm;
-            er.readingExcel(out jobTerm, out centerlinkTerm);
 
-            showGraph(jobTerm,"Job");
-            showGraph(centerlinkTerm, "Centerlink");
+            ExcelReader er = new ExcelReader(out jobTerm, out centerlinkTerm, out cashRateList, out unemployList);
+            
+            clearChart();
+            showGoogleGraph(jobTerm, "Job");
+            showGoogleGraph(centerlinkTerm, "Centerlink");
+            showUnemployedGraph(unemployList, "Unemployed Rate");
+            showCashRateGraph(cashRateList, "Cash Rate");
+            
+        }
 
-            /*
-            for (int column = 0; column < 650; column++)
+        private void showUnemployedGraph(List<DataObject> unemployList, string term)
+        {
+            foreach (DataObject list in unemployList)
             {
-                for(int row = 0; row < 2; row++)
+
+                if (DateTime.Compare(list.getDateTime(), this.dateTimePicker.Value) >= 0 && DateTime.Compare(list.getDateTime(), this.toDateTimePicker.Value) < 0)
                 {
-                    messageTextBox.Text = messageTextBox.Text + message[column, row] + ("\t\t");
-                    //this.chart1.Series["Job"].Points.AddXY();Centerlink and 
-
+                    this.unemployedChart.Series[term].Points.AddXY(Convert.ToDateTime(list.getDateTime()), list.getSearchStat());
+                    this.unemployedChart.Series[term].IsVisibleInLegend = true;
                 }
-                if(column >= 5 && column <= 650)
+            }
+        }
+
+        private void showCashRateGraph(List<DataObject> cashRateList, string term)
+        {
+
+            foreach (DataObject list in cashRateList)
+            {
+
+                if (DateTime.Compare(list.getDateTime(), this.dateTimePicker.Value) >= 0 && DateTime.Compare(list.getDateTime(), this.toDateTimePicker.Value) < 0)
                 {
-                    this.chart1.Series["Job"].Points.AddXY(message[column, 0], message[column, 1]);
-                    this.chart1.Series["Centerlink"].Points.AddXY(centerlinkTermData[column, 0], centerlinkTermData[column, 1]);
+                    this.CashRateChart.Series[term].Points.AddXY(Convert.ToDateTime(list.getDateTime()), list.getSearchStat());
+                    this.CashRateChart.Series[term].IsVisibleInLegend = true;
                 }
-                
-                messageTextBox.Text = messageTextBox.Text + Environment.NewLine;
-
-
-            } */
-
-            progressBar1.Visible = false;
-
-
-
+            }
         }
 
         private void CRPEngine_Load(object sender, EventArgs e)
         {
 
-        }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void messageTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            //this.chart1.Series["Job"].Points.AddXY();
-        }
-
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void showGraph(List<GoogleSearchObject> statList, string term)
-        {
-            foreach(GoogleSearchObject list in statList)
-            {
-                if(DateTime.Compare(list.getDateTime(), Convert.ToDateTime("01-01-2013")) > 0){
-                    this.chart1.Series[term].Points.AddXY(Convert.ToDateTime(list.getDateTime()), list.getSearchStat());
-                }
-            }
         }
         
+
+        private void showGoogleGraph(List<DataObject> statList, string term)
+        {
+            
+
+            foreach(DataObject list in statList)
+            {
+                Console.WriteLine(toDateTimePicker.Value);
+
+                if (DateTime.Compare(list.getDateTime(), this.dateTimePicker.Value) >= 0 && DateTime.Compare(list.getDateTime(), this.toDateTimePicker.Value) < 0)
+                {
+                    this.GoogleTrendsChart.Series[term].Points.AddXY(Convert.ToDateTime(list.getDateTime()), list.getSearchStat());
+                    this.GoogleTrendsChart.Series[term].IsVisibleInLegend = true;
+                }
+            }
+
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clearChart()
+        {
+            foreach (var series in this.GoogleTrendsChart.Series)
+            {
+                series.Points.Clear();
+            }
+
+            foreach (var series in this.CashRateChart.Series)
+            {
+                series.Points.Clear();
+            }
+
+            foreach (var series in this.unemployedChart.Series)
+            {
+                series.Points.Clear();
+            }
+        }
 
         
     }

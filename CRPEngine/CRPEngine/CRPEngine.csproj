@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5716FBF2-878B-40EA-8DC9-7ADABDBD426A}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CRPEngine</RootNamespace>
     <AssemblyName>CRPEngine</AssemblyName>
@@ -133,7 +133,7 @@
     <Compile Include="CRPEngine.Designer.cs">
       <DependentUpon>CRPEngine.cs</DependentUpon>
     </Compile>
-    <Compile Include="GoogleSearchObject.cs" />
+    <Compile Include="DataObject.cs" />
     <Compile Include="LocalFileAccess.cs" />
     <Compile Include="Program.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

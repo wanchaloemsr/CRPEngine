@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace CRPEngine
 {
-    class GoogleSearchObject
+    class DataObject
     {
 
         private DateTime dateTime;
         private string searchingStat;
         private string searchTerm;
 
-        public GoogleSearchObject(string searchTerm)
+        public DataObject(string searchTerm)
         {
             
             this.searchTerm = searchTerm;
