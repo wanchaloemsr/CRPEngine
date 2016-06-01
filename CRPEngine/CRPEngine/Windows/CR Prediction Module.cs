@@ -13,6 +13,7 @@ namespace CRPEngine.Windows
     public partial class CR_Prediction_Module : Form
     {
         public double[,] data = new double[4, 3];
+        public int inputRun = 0;
         private double prediction, AUDChange, GDPChange, inflationChange;
         CRPEngine main;
 
@@ -25,50 +26,6 @@ namespace CRPEngine.Windows
             InitializeComponent();
             this.main = main;
         }
-
-        /*private void download_btn_Click(object sender, EventArgs e)
-        {
-            FetchData myFetchingData = new FetchData();
-            myFetchingData.downloadData();
-            download_msg.Text = "Successfully Downloaded!!";
-            
-        }
-
-        private void delete_file_Click(object sender, EventArgs e)
-        {
-
-            FileAccess myFileAccess = new FileAccess();
-            string deleteMessage;
-
-            deleteMessage =  myFileAccess.deleteFile();
-
-            download_msg.Text = deleteMessage;
-            
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string[,] message = null;
-            ExcelReader er = new ExcelReader();
-            message = er.readExcel();
-
-            if (message != null)
-            {
-                for (int column = 0; column < 30; column++)
-                {
-                    for (int row = 0; row < 2; row++)
-                    {
-                        TextBox.Text = TextBox.Text + message[column, row] + ("\t\t");
-
-                    }
-
-                    TextBox.Text = TextBox.Text + Environment.NewLine;
-
-
-                }
-            }
-        }
-        */
 
         private void CR_Prediction_Module_Load(object sender, EventArgs e)
         {
@@ -88,29 +45,32 @@ namespace CRPEngine.Windows
 
         private void loadChartButton_Click(object sender, EventArgs e)
         {
-            //calculate changes in regards to inputs and time
-            GDPChange = (data[0, 1] - data[0, 0]) / data[0, 0];
-            AUDChange = (((data[2, 1] - data[2, 0]) / data[2, 0]) + ((data[2, 2] - data[2, 1]) / data[2, 1])) / 2;
-            inflationChange = (((data[1, 1] - data[1, 0]) / data[1, 0]) + ((data[1, 2] - data[1, 1]) / data[1, 1])) / 2;
-
-            prediction = GDPChange + AUDChange - inflationChange;
-
-            //determine if a change will occur in the cash rate
-            if (prediction > 0.5)
+            if (inputRun == 1)
             {
-                prediction = data[3, 1] - .025;
-            }
-            else if (prediction < -0.1)
-            {
-                prediction = data[3, 1] + .025;
-            }
-            else
-            {
-                prediction = data[3, 1];
-            }
+                //calculate changes in regards to inputs and time
+                GDPChange = (data[0, 1] - data[0, 0]) / data[0, 0];
+                AUDChange = (((data[2, 1] - data[2, 0]) / data[2, 0]) + ((data[2, 2] - data[2, 1]) / data[2, 1])) / 2;
+                inflationChange = (((data[1, 1] - data[1, 0]) / data[1, 0]) + ((data[1, 2] - data[1, 1]) / data[1, 1])) / 2;
 
-            UpdateChangeLabels();
-            UpdateChartData();
+                prediction = GDPChange + AUDChange - inflationChange;
+
+                //determine if a change will occur in the cash rate
+                if (prediction > 0.5)
+                {
+                    prediction = data[3, 1] - .025;
+                }
+                else if (prediction < -0.1)
+                {
+                    prediction = data[3, 1] + .025;
+                }
+                else
+                {
+                    prediction = data[3, 1];
+                }
+
+                UpdateChangeLabels();
+                UpdateChartData();
+            }
         }
 
         private void chart2_Click(object sender, EventArgs e)
