@@ -27,6 +27,7 @@ namespace CRPEngine
         private string test = "https://www.dropbox.com/s/ab25mqt64t0gk2x/report.csv?dl=0";
         private WebClient myWebClient;
         private string executableLocation, downloadFileLocation;
+        private CRPEngine main;
         Uri myUri = new Uri("https://www.google.com/trends/trendsReport?hl=en-AU&q=job&date=today%2012-m&cmpt=q&tz=Etc%2FGMT-9%3A30&tz=Etc%2FGMT-9%3A30&content=1&export=1");
 
 
@@ -35,7 +36,14 @@ namespace CRPEngine
             myWebClient = new WebClient();
             executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             downloadFileLocation = Path.Combine(executableLocation, "download");
-            
+
+        }
+        public FetchData(CRPEngine main)
+        {
+            myWebClient = new WebClient();
+            executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            downloadFileLocation = Path.Combine(executableLocation, "download");
+            this.main = main;
         }
 
         public async void downloadData()
@@ -53,6 +61,8 @@ namespace CRPEngine
             {
                 Console.WriteLine(ex);
             }
+
+            main.UpdateCompleted();
         }
 
         private void checkDownloadFolder()

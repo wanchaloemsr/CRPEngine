@@ -28,7 +28,7 @@ namespace CRPEngine
                     {
                         dataList = new List<DataObject>();
 
-                        MessageBox.Show("Cash rate roport is unavailable!! Please use the download button provided.");
+                        MessageBox.Show("the cash rate report is unavailable, please update the database.");
                     }
                     break;
                 case "Unemployment Rate":
@@ -40,7 +40,7 @@ namespace CRPEngine
                     {
                         dataList = new List<DataObject>();
 
-                        MessageBox.Show("Unemployment rate roport is unavailable!! Please use the download button provided.");
+                        MessageBox.Show("The unemployment rate report is unavailable, please update the database.");
                     }
                     break;
                 default:
@@ -65,7 +65,7 @@ namespace CRPEngine
                 centerlinkObj = new List<DataObject>();
                 seekObj = new List<DataObject>();
 
-                MessageBox.Show("Some files are unavailable!! Please use the download button provided.");
+                MessageBox.Show("Files missing or corrupt please update the database.");
             }
 
 
