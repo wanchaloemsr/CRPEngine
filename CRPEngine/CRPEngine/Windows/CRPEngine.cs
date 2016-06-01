@@ -243,10 +243,13 @@ namespace CRPEngine
             return CenterlinkCheckBox.Checked;
         }
 
+<<<<<<< HEAD
         private void predict_cashrate_Click(object sender, EventArgs e)
         {
             CR_Prediction_Module CRPred = new CR_Prediction_Module(this);
             CRPred.Show();
         }
+=======
+>>>>>>> origin/master
     }
 }
