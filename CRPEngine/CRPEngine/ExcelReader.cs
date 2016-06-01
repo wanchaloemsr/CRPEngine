@@ -10,9 +10,9 @@ namespace CRPEngine
 {
     class ExcelReader
     {
-        
+
         private Excel.Application xlApp = new Excel.Application();
-        
+
         public ExcelReader()
         {
 
@@ -57,19 +57,16 @@ namespace CRPEngine
 
         public ExcelReader(out List<DataObject> jobTermObj, out List<DataObject> centerlinkObj, out List<DataObject> seekObj)
         {
-                GoogleDataModifier(out jobTermObj, "Job", "database/job-search-report.csv");
-                GoogleDataModifier(out centerlinkObj, "Centerlink", "database/centerlink-search-report.csv");
-                GoogleDataModifier(out seekObj, "Seek", "database/seek-search-report.csv");
+            GoogleDataModifier(out jobTermObj, "Job", "database/job-search-report.csv");
+            GoogleDataModifier(out centerlinkObj, "Centerlink", "database/centerlink-search-report.csv");
+            GoogleDataModifier(out seekObj, "Seek", "database/seek-search-report.csv");
         }
 
-                MessageBox.Show("Some files are unavailable!! Please use the download button provided.");
-            }
 
 
 
-        }
 
-        
+
 
         private void UnemploymentRateAccess(out List<DataObject> dataList, string term, string filePath)
         {
