@@ -32,7 +32,7 @@ namespace CRPEngine
                     {
                         dataList = new List<DataObject>();
 
-                        MessageBox.Show("Cash rate roport is unavailable!! Please use the download button provided.");
+                        MessageBox.Show("the cash rate report is unavailable, please update the database.");
                     }
                     break;
                 case "Unemployment Rate":
@@ -44,7 +44,7 @@ namespace CRPEngine
                     {
                         dataList = new List<DataObject>();
 
-                        MessageBox.Show("Unemployment rate roport is unavailable!! Please use the download button provided.");
+                        MessageBox.Show("The unemployment rate report is unavailable, please update the database.");
                     }
                     break;
                 default:
@@ -60,6 +60,13 @@ namespace CRPEngine
                 GoogleDataModifier(out jobTermObj, "Job", "database/job-search-report.csv");
                 GoogleDataModifier(out centerlinkObj, "Centerlink", "database/centerlink-search-report.csv");
                 GoogleDataModifier(out seekObj, "Seek", "database/seek-search-report.csv");
+        }
+
+                MessageBox.Show("Some files are unavailable!! Please use the download button provided.");
+            }
+
+
+
         }
 
         
