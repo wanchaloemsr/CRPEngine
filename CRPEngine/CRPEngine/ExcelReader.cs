@@ -24,29 +24,13 @@ namespace CRPEngine
             switch (chartCase)
             {
                 case "Cash Rate":
-                    if (checkFileExist() == true)
-                    {
-                        cashRateAccess(out dataList, "Cash Rate", "database/cash-rate.csv");
-                    }
-                    else
-                    {
-                        dataList = new List<DataObject>();
-
-                        MessageBox.Show("the cash rate report is unavailable, please update the database.");
-                    }
+                    cashRateAccess(out dataList, "Cash Rate", "database/cash-rate.csv");
                     break;
+
                 case "Unemployment Rate":
-                    if (checkFileExist() == true)
-                    {
-                        UnemploymentRateAccess(out dataList, "Unemployment Rate", "database/unemployment-report.xls");
-                    }
-                    else
-                    {
-                        dataList = new List<DataObject>();
-
-                        MessageBox.Show("The unemployment rate report is unavailable, please update the database.");
-                    }
+                    UnemploymentRateAccess(out dataList, "Unemployment Rate", "database/unemployment-report.xls");
                     break;
+
                 default:
                     dataList = new List<DataObject>();
                     break;
@@ -61,12 +45,6 @@ namespace CRPEngine
             GoogleDataModifier(out centerlinkObj, "Centerlink", "database/centerlink-search-report.csv");
             GoogleDataModifier(out seekObj, "Seek", "database/seek-search-report.csv");
         }
-
-
-
-
-
-
 
         private void UnemploymentRateAccess(out List<DataObject> dataList, string term, string filePath)
         {
