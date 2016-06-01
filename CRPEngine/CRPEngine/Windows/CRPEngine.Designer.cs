@@ -57,18 +57,20 @@
             // 
             this.download_msg.AutoSize = true;
             this.download_msg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.download_msg.Location = new System.Drawing.Point(310, 76);
+            this.download_msg.Location = new System.Drawing.Point(413, 94);
+            this.download_msg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.download_msg.Name = "download_msg";
-            this.download_msg.Size = new System.Drawing.Size(0, 20);
+            this.download_msg.Size = new System.Drawing.Size(0, 25);
             this.download_msg.TabIndex = 1;
             this.download_msg.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // delete_file
             // 
             this.delete_file.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.delete_file.Location = new System.Drawing.Point(643, 219);
+            this.delete_file.Location = new System.Drawing.Point(857, 270);
+            this.delete_file.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.delete_file.Name = "delete_file";
-            this.delete_file.Size = new System.Drawing.Size(102, 31);
+            this.delete_file.Size = new System.Drawing.Size(136, 38);
             this.delete_file.TabIndex = 2;
             this.delete_file.Text = "Delete File";
             this.delete_file.UseVisualStyleBackColor = true;
@@ -76,9 +78,10 @@
             // 
             // download_btn
             // 
-            this.download_btn.Location = new System.Drawing.Point(643, 179);
+            this.download_btn.Location = new System.Drawing.Point(857, 220);
+            this.download_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.download_btn.Name = "download_btn";
-            this.download_btn.Size = new System.Drawing.Size(102, 31);
+            this.download_btn.Size = new System.Drawing.Size(136, 38);
             this.download_btn.TabIndex = 0;
             this.download_btn.Text = "Update Database";
             this.download_btn.UseVisualStyleBackColor = true;
@@ -87,48 +90,53 @@
             // dateTimePicker
             // 
             this.dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker.Location = new System.Drawing.Point(48, 51);
+            this.dateTimePicker.Location = new System.Drawing.Point(64, 63);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker.MaxDate = new System.DateTime(2016, 6, 15, 0, 0, 0, 0);
             this.dateTimePicker.MinDate = new System.DateTime(2004, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(197, 20);
+            this.dateTimePicker.Size = new System.Drawing.Size(261, 24);
             this.dateTimePicker.TabIndex = 8;
             this.dateTimePicker.Value = new System.DateTime(2004, 1, 1, 0, 0, 0, 0);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 57);
+            this.label1.Location = new System.Drawing.Point(8, 70);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.Size = new System.Drawing.Size(48, 17);
             this.label1.TabIndex = 9;
             this.label1.Text = "From :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(276, 57);
+            this.label2.Location = new System.Drawing.Point(368, 70);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.Size = new System.Drawing.Size(33, 17);
             this.label2.TabIndex = 11;
             this.label2.Text = "To :";
             // 
             // toDateTimePicker
             // 
             this.toDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toDateTimePicker.Location = new System.Drawing.Point(308, 51);
+            this.toDateTimePicker.Location = new System.Drawing.Point(411, 63);
+            this.toDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.toDateTimePicker.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.toDateTimePicker.MinDate = new System.DateTime(2004, 1, 1, 0, 0, 0, 0);
             this.toDateTimePicker.Name = "toDateTimePicker";
-            this.toDateTimePicker.Size = new System.Drawing.Size(199, 20);
+            this.toDateTimePicker.Size = new System.Drawing.Size(264, 24);
             this.toDateTimePicker.TabIndex = 12;
             this.toDateTimePicker.Value = new System.DateTime(2016, 5, 31, 17, 20, 48, 0);
             // 
             // GoogleBtn
             // 
-            this.GoogleBtn.Location = new System.Drawing.Point(47, 269);
+            this.GoogleBtn.Location = new System.Drawing.Point(63, 331);
+            this.GoogleBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GoogleBtn.Name = "GoogleBtn";
-            this.GoogleBtn.Size = new System.Drawing.Size(170, 50);
+            this.GoogleBtn.Size = new System.Drawing.Size(227, 62);
             this.GoogleBtn.TabIndex = 14;
             this.GoogleBtn.Text = "Display Google Trends Chart";
             this.GoogleBtn.UseVisualStyleBackColor = true;
@@ -136,9 +144,10 @@
             // 
             // displayCashRateBtn
             // 
-            this.displayCashRateBtn.Location = new System.Drawing.Point(399, 269);
+            this.displayCashRateBtn.Location = new System.Drawing.Point(532, 331);
+            this.displayCashRateBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.displayCashRateBtn.Name = "displayCashRateBtn";
-            this.displayCashRateBtn.Size = new System.Drawing.Size(170, 50);
+            this.displayCashRateBtn.Size = new System.Drawing.Size(227, 62);
             this.displayCashRateBtn.TabIndex = 15;
             this.displayCashRateBtn.Text = "Display Cash Rate Chart";
             this.displayCashRateBtn.UseVisualStyleBackColor = true;
@@ -146,9 +155,10 @@
             // 
             // UnemployedRateBtn
             // 
-            this.UnemployedRateBtn.Location = new System.Drawing.Point(223, 269);
+            this.UnemployedRateBtn.Location = new System.Drawing.Point(297, 331);
+            this.UnemployedRateBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.UnemployedRateBtn.Name = "UnemployedRateBtn";
-            this.UnemployedRateBtn.Size = new System.Drawing.Size(170, 50);
+            this.UnemployedRateBtn.Size = new System.Drawing.Size(227, 62);
             this.UnemployedRateBtn.TabIndex = 16;
             this.UnemployedRateBtn.Text = "Display Unemployed Rate Chart";
             this.UnemployedRateBtn.UseVisualStyleBackColor = true;
@@ -158,20 +168,23 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(174, 9);
+            this.label3.Location = new System.Drawing.Point(232, 11);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(455, 39);
+            this.label3.Size = new System.Drawing.Size(555, 48);
             this.label3.TabIndex = 17;
             this.label3.Text = "Cash Rate Prediction Engine";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1, 14);
+            this.label4.Location = new System.Drawing.Point(1, 17);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(169, 25);
+            this.label4.Size = new System.Drawing.Size(218, 29);
             this.label4.TabIndex = 18;
             this.label4.Text = "Select time range:";
             // 
@@ -183,17 +196,20 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.toDateTimePicker);
-            this.groupBox1.Location = new System.Drawing.Point(47, 179);
+            this.groupBox1.Location = new System.Drawing.Point(63, 220);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(522, 81);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(696, 100);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             // 
             // displayAllBtn
             // 
-            this.displayAllBtn.Location = new System.Drawing.Point(575, 269);
+            this.displayAllBtn.Location = new System.Drawing.Point(767, 331);
+            this.displayAllBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.displayAllBtn.Name = "displayAllBtn";
-            this.displayAllBtn.Size = new System.Drawing.Size(170, 50);
+            this.displayAllBtn.Size = new System.Drawing.Size(227, 62);
             this.displayAllBtn.TabIndex = 20;
             this.displayAllBtn.Text = "Display All Chart";
             this.displayAllBtn.UseVisualStyleBackColor = true;
@@ -206,9 +222,10 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(47, 335);
+            this.progressBar.Location = new System.Drawing.Point(63, 412);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(698, 23);
+            this.progressBar.Size = new System.Drawing.Size(931, 28);
             this.progressBar.TabIndex = 21;
             // 
             // unemploymentWorker
@@ -225,9 +242,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(50, 127);
+            this.label5.Location = new System.Drawing.Point(67, 156);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(302, 17);
+            this.label5.Size = new System.Drawing.Size(360, 20);
             this.label5.TabIndex = 22;
             this.label5.Text = "Select search terms to display in Google chart:";
             // 
@@ -236,9 +254,10 @@
             this.jobCheckBox.AutoSize = true;
             this.jobCheckBox.Checked = true;
             this.jobCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.jobCheckBox.Location = new System.Drawing.Point(56, 156);
+            this.jobCheckBox.Location = new System.Drawing.Point(75, 192);
+            this.jobCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.jobCheckBox.Name = "jobCheckBox";
-            this.jobCheckBox.Size = new System.Drawing.Size(43, 17);
+            this.jobCheckBox.Size = new System.Drawing.Size(53, 21);
             this.jobCheckBox.TabIndex = 23;
             this.jobCheckBox.Text = "Job";
             this.jobCheckBox.UseVisualStyleBackColor = true;
@@ -248,9 +267,10 @@
             this.SeekCheckBox.AutoSize = true;
             this.SeekCheckBox.Checked = true;
             this.SeekCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.SeekCheckBox.Location = new System.Drawing.Point(191, 156);
+            this.SeekCheckBox.Location = new System.Drawing.Point(255, 192);
+            this.SeekCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SeekCheckBox.Name = "SeekCheckBox";
-            this.SeekCheckBox.Size = new System.Drawing.Size(51, 17);
+            this.SeekCheckBox.Size = new System.Drawing.Size(62, 21);
             this.SeekCheckBox.TabIndex = 24;
             this.SeekCheckBox.Text = "Seek";
             this.SeekCheckBox.UseVisualStyleBackColor = true;
@@ -260,18 +280,19 @@
             this.CenterlinkCheckBox.AutoSize = true;
             this.CenterlinkCheckBox.Checked = true;
             this.CenterlinkCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CenterlinkCheckBox.Location = new System.Drawing.Point(315, 156);
+            this.CenterlinkCheckBox.Location = new System.Drawing.Point(420, 192);
+            this.CenterlinkCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CenterlinkCheckBox.Name = "CenterlinkCheckBox";
-            this.CenterlinkCheckBox.Size = new System.Drawing.Size(73, 17);
+            this.CenterlinkCheckBox.Size = new System.Drawing.Size(93, 21);
             this.CenterlinkCheckBox.TabIndex = 25;
             this.CenterlinkCheckBox.Text = "Centerlink";
             this.CenterlinkCheckBox.UseVisualStyleBackColor = true;
             // 
             // CRPEngine
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 370);
+            this.ClientSize = new System.Drawing.Size(1043, 455);
             this.Controls.Add(this.CenterlinkCheckBox);
             this.Controls.Add(this.SeekCheckBox);
             this.Controls.Add(this.jobCheckBox);
@@ -287,8 +308,9 @@
             this.Controls.Add(this.download_btn);
             this.Controls.Add(this.download_msg);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximumSize = new System.Drawing.Size(1080, 1078);
-            this.MinimumSize = new System.Drawing.Size(540, 349);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximumSize = new System.Drawing.Size(1434, 1316);
+            this.MinimumSize = new System.Drawing.Size(714, 419);
             this.Name = "CRPEngine";
             this.Text = "CRPEngine";
             this.Load += new System.EventHandler(this.CRPEngine_Load);
