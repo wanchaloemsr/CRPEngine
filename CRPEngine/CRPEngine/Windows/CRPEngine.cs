@@ -30,8 +30,18 @@ namespace CRPEngine
 
         private void download_btn_Click(object sender, EventArgs e)
         {
-            FetchData fetchData = new FetchData();
+            disableButtons();
+
+            FetchData fetchData = new FetchData(this);
             fetchData.downloadData();
+            download_msg.Text = "Database Updating";
+            download_msg.Refresh();
+        }
+
+        public void UpdateCompleted()
+        {
+            enableButtons();
+
             download_msg.Text = "Database Updated";
             download_msg.Refresh();
         }
@@ -162,6 +172,8 @@ namespace CRPEngine
             displayCashRateBtn.Enabled = false;
             displayAllBtn.Enabled = false;
             UnemployedRateBtn.Enabled = false;
+            dateTimePicker.Enabled = false;
+            toDateTimePicker.Enabled = false;
         }
 
         private void enableButtons()
@@ -170,6 +182,8 @@ namespace CRPEngine
             displayCashRateBtn.Enabled = true;
             displayAllBtn.Enabled = true;
             UnemployedRateBtn.Enabled = true;
+            dateTimePicker.Enabled = true;
+            toDateTimePicker.Enabled = true;
         }
 
         public DateTime getDateFromDTP1()
