@@ -14,7 +14,7 @@ namespace CRPEngine
 
     public partial class Unemployed_Rate_Chart : Form
     {
-
+        public int Null = 0;
         private List<DataObject> unemployList;
         private CRPEngine CE;
 
@@ -23,10 +23,19 @@ namespace CRPEngine
             InitializeComponent();
             this.CE = CE;
 
-            ExcelReader er = new ExcelReader(out unemployList, "Unemployed Rate");
+            ExcelReader er = new ExcelReader(out unemployList, "Unemployment Rate");
 
             clearChart();
-            showUnemployedGraph(unemployList, "Unemployed Rate");
+
+            if (unemployList == null || unemployList.Count < 1)
+            {
+                Null = 1;
+                this.Dispose();
+            }
+            else
+            {
+                showUnemployedGraph(unemployList, "Unemployment Rate");
+            }
 
         }
 
@@ -49,6 +58,16 @@ namespace CRPEngine
             {
                 series.Points.Clear();
             }
+        }
+
+        private void UnemployedRateChart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Unemployed_Rate_Chart_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

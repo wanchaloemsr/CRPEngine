@@ -128,25 +128,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cash Rate Chart.cs">
+    <Compile Include="Windows\Cash Rate Chart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cash Rate Chart.Designer.cs">
+    <Compile Include="Windows\Cash Rate Chart.Designer.cs">
       <DependentUpon>Cash Rate Chart.cs</DependentUpon>
     </Compile>
     <Compile Include="ExcelReader.cs" />
-    <Compile Include="FetchingData.cs" />
-    <Compile Include="CRPEngine.cs">
+    <Compile Include="FetchData.cs" />
+    <Compile Include="Windows\CRPEngine.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CRPEngine.Designer.cs">
+    <Compile Include="Windows\CRPEngine.Designer.cs">
       <DependentUpon>CRPEngine.cs</DependentUpon>
     </Compile>
     <Compile Include="DataObject.cs" />
-    <Compile Include="Google Trends Chart.cs">
+    <Compile Include="Windows\Google Trends Chart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Google Trends Chart.Designer.cs">
+    <Compile Include="Windows\Google Trends Chart.Designer.cs">
       <DependentUpon>Google Trends Chart.cs</DependentUpon>
     </Compile>
     <Compile Include="LocalFileAccess.cs" />
@@ -154,19 +154,19 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Unemployed Rate Chart.cs">
+    <Compile Include="Windows\Unemployed Rate Chart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Unemployed Rate Chart.Designer.cs">
+    <Compile Include="Windows\Unemployed Rate Chart.Designer.cs">
       <DependentUpon>Unemployed Rate Chart.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Cash Rate Chart.resx">
+    <EmbeddedResource Include="Windows\Cash Rate Chart.resx">
       <DependentUpon>Cash Rate Chart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CRPEngine.resx">
+    <EmbeddedResource Include="Windows\CRPEngine.resx">
       <DependentUpon>CRPEngine.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Google Trends Chart.resx">
+    <EmbeddedResource Include="Windows\Google Trends Chart.resx">
       <DependentUpon>Google Trends Chart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -178,7 +178,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Unemployed Rate Chart.resx">
+    <EmbeddedResource Include="Windows\Unemployed Rate Chart.resx">
       <DependentUpon>Unemployed Rate Chart.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -214,7 +214,7 @@
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
-      <VersionMinor>8</VersionMinor>
+      <VersionMinor>5</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
@@ -223,7 +223,7 @@
     <COMReference Include="Microsoft.Office.Interop.Excel">
       <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>1</VersionMajor>
-      <VersionMinor>9</VersionMinor>
+      <VersionMinor>7</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
@@ -232,7 +232,7 @@
     <COMReference Include="Microsoft.Office.Interop.Outlook">
       <Guid>{00062FFF-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>9</VersionMajor>
-      <VersionMinor>6</VersionMinor>
+      <VersionMinor>4</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
