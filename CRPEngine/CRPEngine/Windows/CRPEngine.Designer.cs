@@ -46,6 +46,10 @@
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.unemploymentWorker = new System.ComponentModel.BackgroundWorker();
             this.cashRateWorker = new System.ComponentModel.BackgroundWorker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.jobCheckBox = new System.Windows.Forms.CheckBox();
+            this.SeekCheckBox = new System.Windows.Forms.CheckBox();
+            this.CenterlinkCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +66,7 @@
             // delete_file
             // 
             this.delete_file.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.delete_file.Location = new System.Drawing.Point(643, 152);
+            this.delete_file.Location = new System.Drawing.Point(643, 219);
             this.delete_file.Name = "delete_file";
             this.delete_file.Size = new System.Drawing.Size(102, 31);
             this.delete_file.TabIndex = 2;
@@ -72,7 +76,7 @@
             // 
             // download_btn
             // 
-            this.download_btn.Location = new System.Drawing.Point(643, 112);
+            this.download_btn.Location = new System.Drawing.Point(643, 179);
             this.download_btn.Name = "download_btn";
             this.download_btn.Size = new System.Drawing.Size(102, 31);
             this.download_btn.TabIndex = 0;
@@ -122,7 +126,7 @@
             // 
             // GoogleBtn
             // 
-            this.GoogleBtn.Location = new System.Drawing.Point(47, 202);
+            this.GoogleBtn.Location = new System.Drawing.Point(47, 269);
             this.GoogleBtn.Name = "GoogleBtn";
             this.GoogleBtn.Size = new System.Drawing.Size(170, 50);
             this.GoogleBtn.TabIndex = 14;
@@ -132,7 +136,7 @@
             // 
             // displayCashRateBtn
             // 
-            this.displayCashRateBtn.Location = new System.Drawing.Point(399, 202);
+            this.displayCashRateBtn.Location = new System.Drawing.Point(399, 269);
             this.displayCashRateBtn.Name = "displayCashRateBtn";
             this.displayCashRateBtn.Size = new System.Drawing.Size(170, 50);
             this.displayCashRateBtn.TabIndex = 15;
@@ -142,7 +146,7 @@
             // 
             // UnemployedRateBtn
             // 
-            this.UnemployedRateBtn.Location = new System.Drawing.Point(223, 202);
+            this.UnemployedRateBtn.Location = new System.Drawing.Point(223, 269);
             this.UnemployedRateBtn.Name = "UnemployedRateBtn";
             this.UnemployedRateBtn.Size = new System.Drawing.Size(170, 50);
             this.UnemployedRateBtn.TabIndex = 16;
@@ -179,7 +183,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.toDateTimePicker);
-            this.groupBox1.Location = new System.Drawing.Point(47, 112);
+            this.groupBox1.Location = new System.Drawing.Point(47, 179);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(522, 81);
             this.groupBox1.TabIndex = 19;
@@ -187,7 +191,7 @@
             // 
             // displayAllBtn
             // 
-            this.displayAllBtn.Location = new System.Drawing.Point(575, 202);
+            this.displayAllBtn.Location = new System.Drawing.Point(575, 269);
             this.displayAllBtn.Name = "displayAllBtn";
             this.displayAllBtn.Size = new System.Drawing.Size(170, 50);
             this.displayAllBtn.TabIndex = 20;
@@ -202,7 +206,7 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(47, 269);
+            this.progressBar.Location = new System.Drawing.Point(47, 335);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(698, 23);
             this.progressBar.TabIndex = 21;
@@ -217,11 +221,61 @@
             this.cashRateWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.cashRateWorker_DoWork);
             this.cashRateWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.cashRateWorker_RunWorkerCompleted);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(50, 127);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(302, 17);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Select search terms to display in Google chart:";
+            // 
+            // jobCheckBox
+            // 
+            this.jobCheckBox.AutoSize = true;
+            this.jobCheckBox.Checked = true;
+            this.jobCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.jobCheckBox.Location = new System.Drawing.Point(56, 156);
+            this.jobCheckBox.Name = "jobCheckBox";
+            this.jobCheckBox.Size = new System.Drawing.Size(43, 17);
+            this.jobCheckBox.TabIndex = 23;
+            this.jobCheckBox.Text = "Job";
+            this.jobCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // SeekCheckBox
+            // 
+            this.SeekCheckBox.AutoSize = true;
+            this.SeekCheckBox.Checked = true;
+            this.SeekCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.SeekCheckBox.Location = new System.Drawing.Point(191, 156);
+            this.SeekCheckBox.Name = "SeekCheckBox";
+            this.SeekCheckBox.Size = new System.Drawing.Size(51, 17);
+            this.SeekCheckBox.TabIndex = 24;
+            this.SeekCheckBox.Text = "Seek";
+            this.SeekCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // CenterlinkCheckBox
+            // 
+            this.CenterlinkCheckBox.AutoSize = true;
+            this.CenterlinkCheckBox.Checked = true;
+            this.CenterlinkCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CenterlinkCheckBox.Location = new System.Drawing.Point(315, 156);
+            this.CenterlinkCheckBox.Name = "CenterlinkCheckBox";
+            this.CenterlinkCheckBox.Size = new System.Drawing.Size(73, 17);
+            this.CenterlinkCheckBox.TabIndex = 25;
+            this.CenterlinkCheckBox.Text = "Centerlink";
+            this.CenterlinkCheckBox.UseVisualStyleBackColor = true;
+            // 
             // CRPEngine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 311);
+            this.ClientSize = new System.Drawing.Size(782, 370);
+            this.Controls.Add(this.CenterlinkCheckBox);
+            this.Controls.Add(this.SeekCheckBox);
+            this.Controls.Add(this.jobCheckBox);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.displayAllBtn);
             this.Controls.Add(this.groupBox1);
@@ -265,6 +319,10 @@
         private System.Windows.Forms.ProgressBar progressBar;
         private System.ComponentModel.BackgroundWorker unemploymentWorker;
         private System.ComponentModel.BackgroundWorker cashRateWorker;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox jobCheckBox;
+        private System.Windows.Forms.CheckBox SeekCheckBox;
+        private System.Windows.Forms.CheckBox CenterlinkCheckBox;
     }
 }
 

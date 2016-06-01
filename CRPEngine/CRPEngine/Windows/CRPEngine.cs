@@ -181,6 +181,21 @@ namespace CRPEngine
         {
             return this.toDateTimePicker.Value;
         }
+
+        public bool getSeekCheck()
+        {
+            return SeekCheckBox.Checked;
+        }
+
+        public bool getJobCheck()
+        {
+            return jobCheckBox.Checked;
+        }
+
+        public bool getCenterlinkCheck()
+        {
+            return CenterlinkCheckBox.Checked;
+        }
         
     }
 }

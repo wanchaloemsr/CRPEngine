@@ -11,7 +11,8 @@ namespace CRPEngine
     class ExcelReader
     {
 
-        Excel.Application xlApp = new Excel.Application();
+        private Excel.Application xlApp = new Excel.Application();
+        
 
         public ExcelReader(out List<DataObject> dataList, string chartCase)
         {
@@ -50,17 +51,19 @@ namespace CRPEngine
 
         }
 
-        public ExcelReader(out List<DataObject> jobTermObj, out List<DataObject> centerlinkObj)
+        public ExcelReader(out List<DataObject> jobTermObj, out List<DataObject> centerlinkObj, out List<DataObject> seekObj)
         {
             if (checkFileExist() == true)
             {
                 GoogleDataModifier(out jobTermObj, "Job", "database/job-search-report.csv");
                 GoogleDataModifier(out centerlinkObj, "Centerlink", "database/centerlink-search-report.csv");
+                GoogleDataModifier(out seekObj, "Seek", "database/seek-search-report.csv");
             }
             else
             {
                 jobTermObj = new List<DataObject>();
                 centerlinkObj = new List<DataObject>();
+                seekObj = new List<DataObject>();
 
                 MessageBox.Show("Some files are unavailable!! Please use the download button provided.");
             }

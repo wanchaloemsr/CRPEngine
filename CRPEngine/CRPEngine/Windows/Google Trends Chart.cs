@@ -14,14 +14,14 @@ namespace CRPEngine
     public partial class Google_Trends_Chart : Form
     {
         public int Null = 0;
-        private List<DataObject> jobTerm, centerlinkTerm;
+        private List<DataObject> jobTerm, centerlinkTerm, seekTerm;
         private CRPEngine CE;
 
         public Google_Trends_Chart(CRPEngine CE)
         {
             InitializeComponent();
             this.CE = CE;
-            ExcelReader er = new ExcelReader(out jobTerm, out centerlinkTerm);
+            ExcelReader er = new ExcelReader(out jobTerm, out centerlinkTerm, out seekTerm);
 
             clearChart();
 
@@ -32,15 +32,38 @@ namespace CRPEngine
             }
             else
             {
-                showGoogleGraph(jobTerm, "Job");
-                showGoogleGraph(centerlinkTerm, "Centerlink");
+                if(CE.getJobCheck() == true)
+                {
+                    showGoogleGraph(jobTerm, "Job");
+                }else
+                {
+                    this.chart1.Series["Job"].Enabled = false;
+                }
+
+                if(CE.getCenterlinkCheck() == true)
+                {
+                    showGoogleGraph(centerlinkTerm, "Centerlink");
+                }else
+                {
+                    this.chart1.Series["Centerlink"].Enabled = false;
+                }
+
+                if (CE.getSeekCheck() == true)
+                {
+                    showGoogleGraph(seekTerm, "Seek");
+                }
+                else
+                {
+                    this.chart1.Series["Seek"].Enabled = false;
+                }
+
+
             }
         }
 
         private void showGoogleGraph(List<DataObject> statList, string term)
         {
-
-
+            
             foreach (DataObject list in statList)
             {
                 //Console.WriteLine(CE.getDateFromDTP1());
@@ -52,8 +75,7 @@ namespace CRPEngine
                 }
                 
             }
-
-
+            
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
