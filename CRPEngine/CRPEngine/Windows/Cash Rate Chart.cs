@@ -12,6 +12,7 @@ namespace CRPEngine
 {
     public partial class Cash_Rate_Chart : Form
     {
+        public int Null = 0;
 
         private List<DataObject> cashRateList;
         private CRPEngine CE;
@@ -24,7 +25,16 @@ namespace CRPEngine
             ExcelReader er = new ExcelReader(out cashRateList, "Cash Rate");
 
             clearChart();
-            showCashRateGraph(cashRateList, "Cash Rate");
+
+            if (cashRateList == null || cashRateList.Count < 1)
+            {
+                Null = 1;
+                this.Dispose();
+            }
+            else
+            {
+                showCashRateGraph(cashRateList, "Cash Rate");
+            }
 
         }
 
@@ -50,6 +60,11 @@ namespace CRPEngine
                 series.Points.Clear();
             }
             
+        }
+
+        private void CashRateChart_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

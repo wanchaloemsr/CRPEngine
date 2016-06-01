@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace CRPEngine
 {
+
     public partial class Google_Trends_Chart : Form
     {
+        public int Null = 0;
         private List<DataObject> jobTerm, centerlinkTerm;
         private CRPEngine CE;
 
@@ -22,8 +24,17 @@ namespace CRPEngine
             ExcelReader er = new ExcelReader(out jobTerm, out centerlinkTerm);
 
             clearChart();
-            showGoogleGraph(jobTerm, "Job");
-            showGoogleGraph(centerlinkTerm, "Centerlink");
+
+            if (jobTerm == null || jobTerm.Count < 1 || centerlinkTerm == null || centerlinkTerm.Count < 1)
+            {
+                Null = 1;
+                this.Dispose();
+            }
+            else
+            {
+                showGoogleGraph(jobTerm, "Job");
+                showGoogleGraph(centerlinkTerm, "Centerlink");
+            }
         }
 
         private void showGoogleGraph(List<DataObject> statList, string term)
@@ -46,6 +57,11 @@ namespace CRPEngine
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
         {
 
         }

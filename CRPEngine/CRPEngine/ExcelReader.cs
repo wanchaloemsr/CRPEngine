@@ -15,7 +15,7 @@ namespace CRPEngine
 
         public ExcelReader(out List<DataObject> dataList, string chartCase)
         {
-
+        
             switch (chartCase)
             {
                 case "Cash Rate":
@@ -27,19 +27,19 @@ namespace CRPEngine
                     {
                         dataList = new List<DataObject>();
 
-                        MessageBox.Show("Cash rate roport is unavailable!! Please use the download button provided.");
+                        MessageBox.Show("The cash rate report is unavailable, please update the database.");
                     }
                     break;
-                case "Unemployed Rate":
+                case "Unemployment Rate":
                     if (checkFileExist() == true)
                     {
-                        UnemploymentRateAccess(out dataList, "Unemployed Rate", "download/unemployment-report.xls");
+                        UnemploymentRateAccess(out dataList, "Unemployment Rate", "download/unemployment-report.xls");
                     }
                     else
                     {
                         dataList = new List<DataObject>();
 
-                        MessageBox.Show("Unemployed rate roport is unavailable!! Please use the download button provided.");
+                        MessageBox.Show("The unemployment rate report is unavailable, please update the database.");
                     }
                     break;
                 default:
@@ -62,7 +62,7 @@ namespace CRPEngine
                 jobTermObj = new List<DataObject>();
                 centerlinkObj = new List<DataObject>();
 
-                MessageBox.Show("Some files are unavailable!! Please use the download button provided.");
+                MessageBox.Show("The job trends report is unavailable, please update the database.");
             }
 
 
