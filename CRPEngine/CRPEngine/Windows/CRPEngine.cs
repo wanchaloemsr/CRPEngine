@@ -17,12 +17,10 @@ namespace CRPEngine
         private Unemployed_Rate_Chart urc;
         private Cash_Rate_Chart crc;
 
-        private ExcelReader excelReader;
 
         public CRPEngine()
         {
             InitializeComponent();
-            excelReader = new ExcelReader();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -32,8 +30,18 @@ namespace CRPEngine
 
         private void download_btn_Click(object sender, EventArgs e)
         {
-            FetchData fetchData = new FetchData();
+            disableButtons();
+
+            FetchData fetchData = new FetchData(this);
             fetchData.downloadData();
+            download_msg.Text = "Database Updating";
+            download_msg.Refresh();
+        }
+
+        public void UpdateCompleted()
+        {
+            enableButtons();
+
             download_msg.Text = "Database Updated";
             download_msg.Refresh();
         }
@@ -61,17 +69,10 @@ namespace CRPEngine
         {
             if (googleChartWorker.IsBusy != true)
             {
-                if (excelReader.checkFileExist() == true)
-                {
-                    this.progressBar.Style = ProgressBarStyle.Marquee;
-                    this.progressBar.MarqueeAnimationSpeed = 2;
-                    disableButtons();
-                    googleChartWorker.RunWorkerAsync();
-                }
-                else
-                {
-                    MessageBox.Show("Some files are unavailable!! Please use the update database button provided.");
-                }
+                this.progressBar.Style = ProgressBarStyle.Marquee;
+                this.progressBar.MarqueeAnimationSpeed = 2;
+                disableButtons();
+                googleChartWorker.RunWorkerAsync();
             }
 
 
@@ -82,17 +83,10 @@ namespace CRPEngine
         {
             if (cashRateWorker.IsBusy != true)
             {
-                if (excelReader.checkFileExist() == true)
-                {
-                    this.progressBar.Style = ProgressBarStyle.Marquee;
-                    this.progressBar.MarqueeAnimationSpeed = 2;
-                    disableButtons();
-                    cashRateWorker.RunWorkerAsync();
-                }
-                else
-                {
-                    MessageBox.Show("Some files are unavailable!! Please use the update database provided.");
-                }
+                this.progressBar.Style = ProgressBarStyle.Marquee;
+                this.progressBar.MarqueeAnimationSpeed = 2;
+                disableButtons();
+                cashRateWorker.RunWorkerAsync();
             }
 
         }
@@ -101,17 +95,10 @@ namespace CRPEngine
         {
             if (unemploymentWorker.IsBusy != true)
             {
-                if (excelReader.checkFileExist() == true)
-                {
-                    this.progressBar.Style = ProgressBarStyle.Marquee;
-                    this.progressBar.MarqueeAnimationSpeed = 2;
-                    disableButtons();
-                    unemploymentWorker.RunWorkerAsync();
-                }
-                else
-                {
-                    MessageBox.Show("Some files are unavailable!! Please use the update database provided.");
-                }
+                this.progressBar.Style = ProgressBarStyle.Marquee;
+                this.progressBar.MarqueeAnimationSpeed = 2;
+                disableButtons();
+                unemploymentWorker.RunWorkerAsync();
             }
         }
 
@@ -119,19 +106,12 @@ namespace CRPEngine
         {
             if (cashRateWorker.IsBusy != true || unemploymentWorker.IsBusy != true || googleChartWorker.IsBusy != true)
             {
-                if (excelReader.checkFileExist() == true)
-                {
-                    this.progressBar.Style = ProgressBarStyle.Marquee;
-                    this.progressBar.MarqueeAnimationSpeed = 2;
-                    disableButtons();
-                    cashRateWorker.RunWorkerAsync();
-                    unemploymentWorker.RunWorkerAsync();
-                    googleChartWorker.RunWorkerAsync();
-                }
-                else
-                {
-                    MessageBox.Show("Some files are unavailable!! Please use the update database provided.");
-                }
+                this.progressBar.Style = ProgressBarStyle.Marquee;
+                this.progressBar.MarqueeAnimationSpeed = 2;
+                disableButtons();
+                cashRateWorker.RunWorkerAsync();
+                unemploymentWorker.RunWorkerAsync();
+                googleChartWorker.RunWorkerAsync();
             }
         }
 
@@ -192,14 +172,18 @@ namespace CRPEngine
             displayCashRateBtn.Enabled = false;
             displayAllBtn.Enabled = false;
             UnemployedRateBtn.Enabled = false;
+            dateTimePicker.Enabled = false;
+            toDateTimePicker.Enabled = false;
         }
 
-        public void enableButtons()
+        private void enableButtons()
         {
             GoogleBtn.Enabled = true;
             displayCashRateBtn.Enabled = true;
             displayAllBtn.Enabled = true;
             UnemployedRateBtn.Enabled = true;
+            dateTimePicker.Enabled = true;
+            toDateTimePicker.Enabled = true;
         }
 
         public DateTime getDateFromDTP1()
@@ -226,6 +210,6 @@ namespace CRPEngine
         {
             return CenterlinkCheckBox.Checked;
         }
-
+        
     }
 }
