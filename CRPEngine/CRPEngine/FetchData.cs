@@ -23,26 +23,28 @@ namespace CRPEngine
     {
         
         private string cash_rate_link = "http://www.rba.gov.au/statistics/tables/csv/f1.1-data.csv";
+        private string seek_search_link = "http://214548.spinetail.cdu.edu.au/google/excel/seek-search-report.csv";
+        private string job_search_link = "http://214548.spinetail.cdu.edu.au/google/excel/job-search-report.csv";
+        private string centerlink_search_link = "http://214548.spinetail.cdu.edu.au/google/excel/centerlink-search-report.csv";
         private string unemployment_rate_link = "http://www.abs.gov.au/ausstats/meisubs.NSF/log?openagent&6202001.xls&6202.0&Time%20Series%20Spreadsheet&5220EF9489727EBBCA257FB7001D0359&0&Apr%202016&19.05.2016&Latest";
-        private string test = "https://www.dropbox.com/s/ab25mqt64t0gk2x/report.csv?dl=0";
+        
         private WebClient myWebClient;
         private string executableLocation, downloadFileLocation;
         private CRPEngine main;
-        Uri myUri = new Uri("https://www.google.com/trends/trendsReport?hl=en-AU&q=job&date=today%2012-m&cmpt=q&tz=Etc%2FGMT-9%3A30&tz=Etc%2FGMT-9%3A30&content=1&export=1");
 
 
         public FetchData()
         {
             myWebClient = new WebClient();
             executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            downloadFileLocation = Path.Combine(executableLocation, "download");
+            downloadFileLocation = Path.Combine(executableLocation, "database");
 
         }
         public FetchData(CRPEngine main)
         {
             myWebClient = new WebClient();
             executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            downloadFileLocation = Path.Combine(executableLocation, "download");
+            downloadFileLocation = Path.Combine(executableLocation, "database");
             this.main = main;
         }
 
@@ -54,8 +56,9 @@ namespace CRPEngine
 
                 await myWebClient.DownloadFileTaskAsync(unemployment_rate_link, Path.Combine(downloadFileLocation, "unemployment-report.xls"));
                 await myWebClient.DownloadFileTaskAsync(cash_rate_link, Path.Combine(downloadFileLocation, "cash-rate.csv"));
-                await myWebClient.DownloadFileTaskAsync(test, Path.Combine(downloadFileLocation, "google-job-search-stat.csv"));
-                //myWebClient.DownloadFileAsync(myUri, Path.Combine(downloadFileLocation, "google-job-search-stat.csv"));
+                await myWebClient.DownloadFileTaskAsync(job_search_link, Path.Combine(downloadFileLocation, "job-search-report.csv"));
+                await myWebClient.DownloadFileTaskAsync(seek_search_link, Path.Combine(downloadFileLocation, "seek-search-report.csv"));
+                await myWebClient.DownloadFileTaskAsync(centerlink_search_link, Path.Combine(downloadFileLocation, "centerlink-search-report.csv"));
             }
             catch (System.Net.WebException ex)
             {

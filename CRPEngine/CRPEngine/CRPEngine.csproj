@@ -136,6 +136,12 @@
     </Compile>
     <Compile Include="ExcelReader.cs" />
     <Compile Include="FetchData.cs" />
+    <Compile Include="Windows\CR Prediction Module.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\CR Prediction Module.Designer.cs">
+      <DependentUpon>CR Prediction Module.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\CRPEngine.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,12 @@
       <DependentUpon>CRPEngine.cs</DependentUpon>
     </Compile>
     <Compile Include="DataObject.cs" />
+    <Compile Include="Windows\Data Input.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Data Input.Designer.cs">
+      <DependentUpon>Data Input.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Google Trends Chart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,8 +175,14 @@
     <EmbeddedResource Include="Windows\Cash Rate Chart.resx">
       <DependentUpon>Cash Rate Chart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\CR Prediction Module.resx">
+      <DependentUpon>CR Prediction Module.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\CRPEngine.resx">
       <DependentUpon>CRPEngine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Data Input.resx">
+      <DependentUpon>Data Input.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Google Trends Chart.resx">
       <DependentUpon>Google Trends Chart.cs</DependentUpon>

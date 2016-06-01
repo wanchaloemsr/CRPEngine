@@ -12,7 +12,11 @@ namespace CRPEngine
     {
 
         private Excel.Application xlApp = new Excel.Application();
-        
+
+        public ExcelReader()
+        {
+
+        }
 
         public ExcelReader(out List<DataObject> dataList, string chartCase)
         {
@@ -20,29 +24,13 @@ namespace CRPEngine
             switch (chartCase)
             {
                 case "Cash Rate":
-                    if (checkFileExist() == true)
-                    {
-                        cashRateAccess(out dataList, "Cash Rate", "database/cash-rate.csv");
-                    }
-                    else
-                    {
-                        dataList = new List<DataObject>();
-
-                        MessageBox.Show("the cash rate report is unavailable, please update the database.");
-                    }
+                    cashRateAccess(out dataList, "Cash Rate", "database/cash-rate.csv");
                     break;
+
                 case "Unemployment Rate":
-                    if (checkFileExist() == true)
-                    {
-                        UnemploymentRateAccess(out dataList, "Unemployment Rate", "database/unemployment-report.xls");
-                    }
-                    else
-                    {
-                        dataList = new List<DataObject>();
-
-                        MessageBox.Show("The unemployment rate report is unavailable, please update the database.");
-                    }
+                    UnemploymentRateAccess(out dataList, "Unemployment Rate", "database/unemployment-report.xls");
                     break;
+
                 default:
                     dataList = new List<DataObject>();
                     break;
@@ -53,26 +41,10 @@ namespace CRPEngine
 
         public ExcelReader(out List<DataObject> jobTermObj, out List<DataObject> centerlinkObj, out List<DataObject> seekObj)
         {
-            if (checkFileExist() == true)
-            {
-                GoogleDataModifier(out jobTermObj, "Job", "database/job-search-report.csv");
-                GoogleDataModifier(out centerlinkObj, "Centerlink", "database/centerlink-search-report.csv");
-                GoogleDataModifier(out seekObj, "Seek", "database/seek-search-report.csv");
-            }
-            else
-            {
-                jobTermObj = new List<DataObject>();
-                centerlinkObj = new List<DataObject>();
-                seekObj = new List<DataObject>();
-
-                MessageBox.Show("Files missing or corrupt please update the database.");
-            }
-
-
-
+            GoogleDataModifier(out jobTermObj, "Job", "database/job-search-report.csv");
+            GoogleDataModifier(out centerlinkObj, "Centerlink", "database/centerlink-search-report.csv");
+            GoogleDataModifier(out seekObj, "Seek", "database/seek-search-report.csv");
         }
-
-        
 
         private void UnemploymentRateAccess(out List<DataObject> dataList, string term, string filePath)
         {
@@ -242,10 +214,11 @@ namespace CRPEngine
 
         }
 
-        private bool checkFileExist()
+        public bool checkFileExist()
         {
             if (File.Exists("database/unemployment-report.xls") == true && File.Exists("database/job-search-report.csv") == true
-                && File.Exists("database/centerlink-search-report.csv") == true && File.Exists("database/cash-rate.csv") == true)
+                && File.Exists("database/centerlink-search-report.csv") == true && File.Exists("database/cash-rate.csv") == true
+                && File.Exists("database/seek-search-report.csv") == true)
             {
                 return true;
             }

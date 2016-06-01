@@ -50,6 +50,7 @@
             this.jobCheckBox = new System.Windows.Forms.CheckBox();
             this.SeekCheckBox = new System.Windows.Forms.CheckBox();
             this.CenterlinkCheckBox = new System.Windows.Forms.CheckBox();
+            this.predict_cashrate = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,8 +68,8 @@
             // delete_file
             // 
             this.delete_file.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.delete_file.Location = new System.Drawing.Point(857, 270);
-            this.delete_file.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.delete_file.Location = new System.Drawing.Point(858, 279);
+            this.delete_file.Margin = new System.Windows.Forms.Padding(4);
             this.delete_file.Name = "delete_file";
             this.delete_file.Size = new System.Drawing.Size(136, 38);
             this.delete_file.TabIndex = 2;
@@ -78,8 +79,8 @@
             // 
             // download_btn
             // 
-            this.download_btn.Location = new System.Drawing.Point(857, 220);
-            this.download_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.download_btn.Location = new System.Drawing.Point(858, 228);
+            this.download_btn.Margin = new System.Windows.Forms.Padding(4);
             this.download_btn.Name = "download_btn";
             this.download_btn.Size = new System.Drawing.Size(136, 38);
             this.download_btn.TabIndex = 0;
@@ -91,7 +92,7 @@
             // 
             this.dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker.Location = new System.Drawing.Point(64, 63);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker.MaxDate = new System.DateTime(2016, 6, 15, 0, 0, 0, 0);
             this.dateTimePicker.MinDate = new System.DateTime(2004, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker.Name = "dateTimePicker";
@@ -123,7 +124,7 @@
             // 
             this.toDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toDateTimePicker.Location = new System.Drawing.Point(411, 63);
-            this.toDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.toDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.toDateTimePicker.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.toDateTimePicker.MinDate = new System.DateTime(2004, 1, 1, 0, 0, 0, 0);
             this.toDateTimePicker.Name = "toDateTimePicker";
@@ -134,7 +135,7 @@
             // GoogleBtn
             // 
             this.GoogleBtn.Location = new System.Drawing.Point(63, 331);
-            this.GoogleBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GoogleBtn.Margin = new System.Windows.Forms.Padding(4);
             this.GoogleBtn.Name = "GoogleBtn";
             this.GoogleBtn.Size = new System.Drawing.Size(227, 62);
             this.GoogleBtn.TabIndex = 14;
@@ -145,7 +146,7 @@
             // displayCashRateBtn
             // 
             this.displayCashRateBtn.Location = new System.Drawing.Point(532, 331);
-            this.displayCashRateBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.displayCashRateBtn.Margin = new System.Windows.Forms.Padding(4);
             this.displayCashRateBtn.Name = "displayCashRateBtn";
             this.displayCashRateBtn.Size = new System.Drawing.Size(227, 62);
             this.displayCashRateBtn.TabIndex = 15;
@@ -156,7 +157,7 @@
             // UnemployedRateBtn
             // 
             this.UnemployedRateBtn.Location = new System.Drawing.Point(297, 331);
-            this.UnemployedRateBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UnemployedRateBtn.Margin = new System.Windows.Forms.Padding(4);
             this.UnemployedRateBtn.Name = "UnemployedRateBtn";
             this.UnemployedRateBtn.Size = new System.Drawing.Size(227, 62);
             this.UnemployedRateBtn.TabIndex = 16;
@@ -175,7 +176,6 @@
             this.label3.TabIndex = 17;
             this.label3.Text = "Cash Rate Prediction Engine";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -197,9 +197,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.toDateTimePicker);
             this.groupBox1.Location = new System.Drawing.Point(63, 220);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(696, 100);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
@@ -207,7 +207,7 @@
             // displayAllBtn
             // 
             this.displayAllBtn.Location = new System.Drawing.Point(767, 331);
-            this.displayAllBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.displayAllBtn.Margin = new System.Windows.Forms.Padding(4);
             this.displayAllBtn.Name = "displayAllBtn";
             this.displayAllBtn.Size = new System.Drawing.Size(227, 62);
             this.displayAllBtn.TabIndex = 20;
@@ -223,7 +223,7 @@
             // progressBar
             // 
             this.progressBar.Location = new System.Drawing.Point(63, 412);
-            this.progressBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(931, 28);
             this.progressBar.TabIndex = 21;
@@ -255,7 +255,7 @@
             this.jobCheckBox.Checked = true;
             this.jobCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.jobCheckBox.Location = new System.Drawing.Point(75, 192);
-            this.jobCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jobCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.jobCheckBox.Name = "jobCheckBox";
             this.jobCheckBox.Size = new System.Drawing.Size(53, 21);
             this.jobCheckBox.TabIndex = 23;
@@ -268,7 +268,7 @@
             this.SeekCheckBox.Checked = true;
             this.SeekCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.SeekCheckBox.Location = new System.Drawing.Point(255, 192);
-            this.SeekCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SeekCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.SeekCheckBox.Name = "SeekCheckBox";
             this.SeekCheckBox.Size = new System.Drawing.Size(62, 21);
             this.SeekCheckBox.TabIndex = 24;
@@ -281,18 +281,29 @@
             this.CenterlinkCheckBox.Checked = true;
             this.CenterlinkCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CenterlinkCheckBox.Location = new System.Drawing.Point(420, 192);
-            this.CenterlinkCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CenterlinkCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.CenterlinkCheckBox.Name = "CenterlinkCheckBox";
             this.CenterlinkCheckBox.Size = new System.Drawing.Size(93, 21);
             this.CenterlinkCheckBox.TabIndex = 25;
             this.CenterlinkCheckBox.Text = "Centerlink";
             this.CenterlinkCheckBox.UseVisualStyleBackColor = true;
             // 
+            // predict_cashrate
+            // 
+            this.predict_cashrate.Location = new System.Drawing.Point(858, 175);
+            this.predict_cashrate.Name = "predict_cashrate";
+            this.predict_cashrate.Size = new System.Drawing.Size(136, 38);
+            this.predict_cashrate.TabIndex = 26;
+            this.predict_cashrate.Text = "Predict Cash Rate";
+            this.predict_cashrate.UseVisualStyleBackColor = true;
+            this.predict_cashrate.Click += new System.EventHandler(this.predict_cashrate_Click);
+            // 
             // CRPEngine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1043, 455);
+            this.Controls.Add(this.predict_cashrate);
             this.Controls.Add(this.CenterlinkCheckBox);
             this.Controls.Add(this.SeekCheckBox);
             this.Controls.Add(this.jobCheckBox);
@@ -308,7 +319,7 @@
             this.Controls.Add(this.download_btn);
             this.Controls.Add(this.download_msg);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1434, 1316);
             this.MinimumSize = new System.Drawing.Size(714, 419);
             this.Name = "CRPEngine";
@@ -345,6 +356,7 @@
         private System.Windows.Forms.CheckBox jobCheckBox;
         private System.Windows.Forms.CheckBox SeekCheckBox;
         private System.Windows.Forms.CheckBox CenterlinkCheckBox;
+        private System.Windows.Forms.Button predict_cashrate;
     }
 }
 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using CRPEngine.Windows;
 
 namespace CRPEngine
 {
@@ -17,10 +18,13 @@ namespace CRPEngine
         private Unemployed_Rate_Chart urc;
         private Cash_Rate_Chart crc;
 
+        private ExcelReader excelReader;
+
 
         public CRPEngine()
         {
             InitializeComponent();
+            excelReader = new ExcelReader();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -69,10 +73,17 @@ namespace CRPEngine
         {
             if (googleChartWorker.IsBusy != true)
             {
-                this.progressBar.Style = ProgressBarStyle.Marquee;
-                this.progressBar.MarqueeAnimationSpeed = 2;
-                disableButtons();
-                googleChartWorker.RunWorkerAsync();
+                if (excelReader.checkFileExist() == true)
+                {
+                    this.progressBar.Style = ProgressBarStyle.Marquee;
+                    this.progressBar.MarqueeAnimationSpeed = 2;
+                    disableButtons();
+                    googleChartWorker.RunWorkerAsync();
+                }
+                else
+                {
+                    MessageBox.Show("Some file in the databse is missing or interupted. Please try Updatng the Database.");
+                }
             }
 
 
@@ -83,10 +94,17 @@ namespace CRPEngine
         {
             if (cashRateWorker.IsBusy != true)
             {
-                this.progressBar.Style = ProgressBarStyle.Marquee;
-                this.progressBar.MarqueeAnimationSpeed = 2;
-                disableButtons();
-                cashRateWorker.RunWorkerAsync();
+                if (excelReader.checkFileExist() == true)
+                {
+                    this.progressBar.Style = ProgressBarStyle.Marquee;
+                    this.progressBar.MarqueeAnimationSpeed = 2;
+                    disableButtons();
+                    cashRateWorker.RunWorkerAsync();
+                }
+                else
+                {
+                    MessageBox.Show("Some file in the databse is missing or interupted. Please try Updatng the Database.");
+                }
             }
 
         }
@@ -95,10 +113,18 @@ namespace CRPEngine
         {
             if (unemploymentWorker.IsBusy != true)
             {
-                this.progressBar.Style = ProgressBarStyle.Marquee;
-                this.progressBar.MarqueeAnimationSpeed = 2;
-                disableButtons();
-                unemploymentWorker.RunWorkerAsync();
+                if (excelReader.checkFileExist() == true)
+                {
+                    this.progressBar.Style = ProgressBarStyle.Marquee;
+                    this.progressBar.MarqueeAnimationSpeed = 2;
+                    disableButtons();
+                    unemploymentWorker.RunWorkerAsync();
+                }
+                else
+                {
+                    MessageBox.Show("Some file in the databse is missing or interupted. Please try Updatng the Database.");
+                }
+
             }
         }
 
@@ -106,12 +132,19 @@ namespace CRPEngine
         {
             if (cashRateWorker.IsBusy != true || unemploymentWorker.IsBusy != true || googleChartWorker.IsBusy != true)
             {
-                this.progressBar.Style = ProgressBarStyle.Marquee;
-                this.progressBar.MarqueeAnimationSpeed = 2;
-                disableButtons();
-                cashRateWorker.RunWorkerAsync();
-                unemploymentWorker.RunWorkerAsync();
-                googleChartWorker.RunWorkerAsync();
+                if (excelReader.checkFileExist() == true)
+                {
+                    this.progressBar.Style = ProgressBarStyle.Marquee;
+                    this.progressBar.MarqueeAnimationSpeed = 2;
+                    disableButtons();
+                    cashRateWorker.RunWorkerAsync();
+                    unemploymentWorker.RunWorkerAsync();
+                    googleChartWorker.RunWorkerAsync();
+                }
+                else
+                {
+                    MessageBox.Show("Some file in the databse is missing or interupted. Please try Updatng the Database.");
+                }
             }
         }
 
@@ -135,7 +168,6 @@ namespace CRPEngine
         private void unemploymentWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             urc = new Unemployed_Rate_Chart(this);
-
         }
 
         private void unemploymentWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -211,9 +243,10 @@ namespace CRPEngine
             return CenterlinkCheckBox.Checked;
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void predict_cashrate_Click(object sender, EventArgs e)
         {
-
+            CR_Prediction_Module CRPred = new CR_Prediction_Module(this);
+            CRPred.Show();
         }
     }
 }
