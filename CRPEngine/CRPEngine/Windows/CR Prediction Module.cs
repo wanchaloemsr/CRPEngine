@@ -140,7 +140,7 @@ namespace CRPEngine.Windows
             chart2.Series["Cash Rate"].Points.AddXY(0, data[3, 0]);
             chart2.Series["Cash Rate"].Points.AddXY(1, data[3, 1]);
             chart2.Series["Cash Rate"].Points.AddXY(2, data[3, 2]);
-            chart2.Series["Prediction"].Points.AddXY(2, data[3, 1]);
+            chart2.Series["Prediction"].Points.AddXY(2, data[3, 2]);
             chart2.Series["Prediction"].Points.AddXY(3, prediction);
         }
 
