@@ -10,9 +10,13 @@ namespace CRPEngine
 {
     class ExcelReader
     {
-
+        
         private Excel.Application xlApp = new Excel.Application();
         
+        public ExcelReader()
+        {
+
+        }
 
         public ExcelReader(out List<DataObject> dataList, string chartCase)
         {
@@ -53,23 +57,9 @@ namespace CRPEngine
 
         public ExcelReader(out List<DataObject> jobTermObj, out List<DataObject> centerlinkObj, out List<DataObject> seekObj)
         {
-            if (checkFileExist() == true)
-            {
                 GoogleDataModifier(out jobTermObj, "Job", "database/job-search-report.csv");
                 GoogleDataModifier(out centerlinkObj, "Centerlink", "database/centerlink-search-report.csv");
                 GoogleDataModifier(out seekObj, "Seek", "database/seek-search-report.csv");
-            }
-            else
-            {
-                jobTermObj = new List<DataObject>();
-                centerlinkObj = new List<DataObject>();
-                seekObj = new List<DataObject>();
-
-                MessageBox.Show("Some files are unavailable!! Please use the download button provided.");
-            }
-
-
-
         }
 
         
@@ -242,10 +232,11 @@ namespace CRPEngine
 
         }
 
-        private bool checkFileExist()
+        public bool checkFileExist()
         {
             if (File.Exists("database/unemployment-report.xls") == true && File.Exists("database/job-search-report.csv") == true
-                && File.Exists("database/centerlink-search-report.csv") == true && File.Exists("database/cash-rate.csv") == true)
+                && File.Exists("database/centerlink-search-report.csv") == true && File.Exists("database/cash-rate.csv") == true
+                && File.Exists("database/seek-search-report.csv") == true)
             {
                 return true;
             }
