@@ -13,7 +13,11 @@ namespace CRPEngine
 {
     public partial class CRPEngine : Form
     {
-        
+        private Google_Trends_Chart googleForm;
+        private Unemployed_Rate_Chart urc;
+        private Cash_Rate_Chart crc;
+
+
         public CRPEngine()
         {
             InitializeComponent();
@@ -38,12 +42,12 @@ namespace CRPEngine
             LocalFileAccess myFileAccess = new LocalFileAccess();
             string deleteMessage;
 
-            deleteMessage =  myFileAccess.deleteFile();
+            deleteMessage = myFileAccess.deleteFile();
 
             download_msg.Text = deleteMessage;
             download_msg.Refresh();
         }
-        
+
         private void CRPEngine_Load(object sender, EventArgs e)
         {
 
@@ -53,51 +57,119 @@ namespace CRPEngine
 
         private void GoogleBtn_Click(object sender, EventArgs e)
         {
-            Google_Trends_Chart googleForm = new Google_Trends_Chart(this);
-            if (googleForm.Null != 1)
+            if (googleChartWorker.IsBusy != true)
             {
-                googleForm.Show();
+                this.progressBar.Style = ProgressBarStyle.Marquee;
+                this.progressBar.MarqueeAnimationSpeed = 2;
+                disableButtons();
+                googleChartWorker.RunWorkerAsync();
             }
+
+
         }
 
 
         private void displayCashRateBtn_Click(object sender, EventArgs e)
         {
-            Cash_Rate_Chart crc = new Cash_Rate_Chart(this);
-            if (crc.Null != 1)
+            if (cashRateWorker.IsBusy != true)
             {
-                crc.Show();
+                this.progressBar.Style = ProgressBarStyle.Marquee;
+                this.progressBar.MarqueeAnimationSpeed = 2;
+                disableButtons();
+                cashRateWorker.RunWorkerAsync();
             }
+
         }
 
         private void UnemployedRateBtn_Click(object sender, EventArgs e)
         {
-            Unemployed_Rate_Chart urc = new Unemployed_Rate_Chart(this);
-            if (urc.Null != 1)
+            if (unemploymentWorker.IsBusy != true)
             {
-                urc.Show();
+                this.progressBar.Style = ProgressBarStyle.Marquee;
+                this.progressBar.MarqueeAnimationSpeed = 2;
+                disableButtons();
+                unemploymentWorker.RunWorkerAsync();
             }
         }
 
         private void displayAllBtn_Click(object sender, EventArgs e)
         {
-            Google_Trends_Chart googleForm = new Google_Trends_Chart(this);
+            if (cashRateWorker.IsBusy != true || unemploymentWorker.IsBusy != true || googleChartWorker.IsBusy != true)
+            {
+                this.progressBar.Style = ProgressBarStyle.Marquee;
+                this.progressBar.MarqueeAnimationSpeed = 2;
+                disableButtons();
+                cashRateWorker.RunWorkerAsync();
+                unemploymentWorker.RunWorkerAsync();
+                googleChartWorker.RunWorkerAsync();
+            }
+        }
+
+
+        private void googleChart_DoWork(object sender, DoWorkEventArgs e)
+        {
+            googleForm = new Google_Trends_Chart(this);
+        }
+
+        private void googleChart_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
             if (googleForm.Null != 1)
             {
                 googleForm.Show();
+                this.progressBar.Style = ProgressBarStyle.Blocks;
+                this.progressBar.Value = 100;
+                enableButtons();
+            }
+        }
 
-                Unemployed_Rate_Chart urc = new Unemployed_Rate_Chart(this);
-                if (urc.Null != 1)
-                {
-                    urc.Show();
+        private void unemploymentWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            urc = new Unemployed_Rate_Chart(this);
 
-                    Cash_Rate_Chart crc = new Cash_Rate_Chart(this);
-                    if (crc.Null != 1)
-                    {
-                        crc.Show();
-                    }
-                }
-            }            
+        }
+
+        private void unemploymentWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (urc.Null != 1)
+            {
+                urc.Show();
+                this.progressBar.Style = ProgressBarStyle.Blocks;
+                this.progressBar.Value = 100;
+                enableButtons();
+            }
+        }
+
+        private void cashRateWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            crc = new Cash_Rate_Chart(this);
+        }
+
+        private void cashRateWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+            if (crc.Null != 1)
+            {
+                crc.Show();
+                this.progressBar.Style = ProgressBarStyle.Blocks;
+                this.progressBar.Value = 100;
+                enableButtons();
+            }
+        }
+
+        private void disableButtons()
+        {
+            GoogleBtn.Enabled = false;
+            displayCashRateBtn.Enabled = false;
+            displayAllBtn.Enabled = false;
+            UnemployedRateBtn.Enabled = false;
+        }
+
+        private void enableButtons()
+        {
+            GoogleBtn.Enabled = true;
+            displayCashRateBtn.Enabled = true;
+            displayAllBtn.Enabled = true;
+            UnemployedRateBtn.Enabled = true;
         }
 
         public DateTime getDateFromDTP1()
@@ -109,11 +181,6 @@ namespace CRPEngine
         {
             return this.toDateTimePicker.Value;
         }
-
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

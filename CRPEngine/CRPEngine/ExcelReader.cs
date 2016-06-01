@@ -30,16 +30,16 @@ namespace CRPEngine
                         MessageBox.Show("Cash rate roport is unavailable!! Please use the download button provided.");
                     }
                     break;
-                case "Unemployed Rate":
+                case "Unemployment Rate":
                     if (checkFileExist() == true)
                     {
-                        UnemploymentRateAccess(out dataList, "Unemployed Rate", "database/unemployment-report.xls");
+                        UnemploymentRateAccess(out dataList, "Unemployment Rate", "database/unemployment-report.xls");
                     }
                     else
                     {
                         dataList = new List<DataObject>();
 
-                        MessageBox.Show("Unemployed rate roport is unavailable!! Please use the download button provided.");
+                        MessageBox.Show("Unemployment rate roport is unavailable!! Please use the download button provided.");
                     }
                     break;
                 default:
@@ -69,7 +69,7 @@ namespace CRPEngine
 
         }
 
-
+        
 
         private void UnemploymentRateAccess(out List<DataObject> dataList, string term, string filePath)
         {
@@ -105,7 +105,7 @@ namespace CRPEngine
 
                 if (unemployedValue != null && unemployedValue.GetType() == typeof(DateTime))
                 {
-                    DataObject unemployedData = new DataObject("Unemployed Rate");
+                    DataObject unemployedData = new DataObject("Unemployment Rate");
 
                     unemployedData.addValue(Convert.ToDateTime(unemployedValue), Convert.ToString((range.Cells[rCount, col] as Excel.Range).Value));
 
